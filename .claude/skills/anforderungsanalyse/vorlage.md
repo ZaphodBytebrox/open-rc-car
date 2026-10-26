@@ -26,3 +26,10 @@
 
 ## Offene Punkte
 - [ ] <Frage, die noch geklärt werden muss>
+
+## Nachweis
+*Wird bei der Umsetzung ausgefüllt (Skill `umsetzung`).*
+
+| ID | Status | Nachweis |
+|---|---|---|
+| MECH-XXX-001 | ✅ erfüllt / 🔧 am Prototyp prüfen / ❌ nicht erfüllt | <wie geprüft, Messwert> |
