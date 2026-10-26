@@ -3,6 +3,16 @@
     "fusion": {
       "type": "http",
       "url": "http://127.0.0.1:27182/mcp"
+    },
+    "kicad": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["kicad-mcp-pro@4.4.0"],
+      "env": {
+        "KICAD_MCP_PROFILE": "builder",
+        "KICAD_MCP_OPERATING_MODE": "write",
+        "KICAD_CLI_PATH": "${KICAD_CLI_PATH:-/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli}"
+      }
     }
   }
 }
