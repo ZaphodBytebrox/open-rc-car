@@ -17,6 +17,7 @@ Ziel: ein offenes 1:10-Allround-Buggy zum Selberbauen. Version 1 fährt mit gedr
 | 2026-10-26 | Fernsteuerung v1 | ExpressLRS (ELRS) |
 | 2026-10-26 | Lenkservo | Standardservo 40 × 20 mm |
 | 2026-10-26 | Elektronik-Werkzeug | KiCad 10 über einen KiCad-MCP-Server; Prüfung und Export mit `kicad-cli` |
+| 2026-10-26 | KiCad-MCP-Server | `kicad-mcp-pro` 4.4.0 (MIT, unterstützt KiCad 10), Profil `builder` (216 Tools), Modus `write`. Verworfen: Konnect (wird archiviert, Nachfolger ist Closed Source) und `mcp-server-kicad` (nur noch Wartung). |
 
 ## Vorgeschlagene Architektur (noch zu bestätigen)
 

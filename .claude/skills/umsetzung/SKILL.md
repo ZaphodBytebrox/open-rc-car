@@ -86,6 +86,7 @@ Elektronik wird in **KiCad 10** entworfen, über den **KiCad-MCP-Server** (in `.
 - KiCad-Dateien sind Text und werden **nicht** über LFS versioniert. Backups (`*-backups/`), `fp-info-cache` und `*.lck` gehören nicht ins Repository.
 
 **Arbeiten mit dem MCP-Server:**
+- Server ist `kicad-mcp-pro`. Zuerst das Projekt setzen (`kicad_set_project` auf `electronics/<baugruppe>/`).
 - Kleine Schritte: Bauteile platzieren, verbinden, ERC, dann den nächsten Block.
 - Nach jedem Block die Netze und Verbindungen über den Server zurücklesen und prüfen.
 - Nur im Projektordner der Baugruppe schreiben.

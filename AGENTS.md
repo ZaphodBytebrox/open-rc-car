@@ -64,6 +64,9 @@ Bevor du größere Arbeiten beginnst, lies `docs/plan.md`. Dort stehen der Gesam
 
 ## Elektronik (KiCad über MCP-Server)
 - Schaltplan und Platine entstehen in KiCad 10 über den KiCad-MCP-Server (`kicad` in `.mcp.json`).
+- Server ist [`kicad-mcp-pro`](https://github.com/oaslananka/kicad-mcp-pro) in fester Version, gestartet über `uvx` (Voraussetzung: `brew install uv`). Profil `builder` mit Modus `write`, damit Schaltplan und Platine bearbeitet werden können. Das Profil `build` hat nur 17 Tools und reicht dafür nicht.
+- Das aktive Projekt wird zur Laufzeit gesetzt (`kicad_set_project`), immer auf den Ordner der Baugruppe in `electronics/<baugruppe>/`.
+- Live-Bearbeitung der Platine braucht ein laufendes KiCad mit aktivierter IPC-API (Einstellungen → Plugins → „KiCad API aktivieren“). Schaltpläne bearbeitet der Server direkt in den Dateien.
 - Ein KiCad-Projekt pro Baugruppe in `electronics/<baugruppe>/`, projekteigene Bibliotheken in `lib/`, Fertigungsdaten in `fertigung/`.
 - Verbindlicher Nachweis für ERC und DRC ist `kicad-cli`: ohne Fehler, DRC mit `--schematic-parity`.
 - KiCad-Dateien sind Text und werden nicht über LFS versioniert.
