@@ -30,6 +30,11 @@ Bevor du größere Arbeiten beginnst, lies `docs/plan.md`. Dort stehen der Gesam
 - Vor jeder neuen Baugruppe (Mechanik oder Elektronik) eine Anforderungsanalyse machen. Claude Code nutzt dafür den Skill `anforderungsanalyse` in `.claude/skills/`, andere Agenten folgen derselben Anleitung.
 - Unklare Anforderungen werden beim Nutzer nachgefragt und nicht geraten.
 - Ergebnis: `docs/anforderungen/<baugruppe>.md`
+- Umgesetzt wird ein abgestimmtes Anforderungsdokument mit dem Skill `umsetzung` (`.claude/skills/umsetzung/`). Dazu gehören Konstruktion bzw. Elektronik, ein Nachweis für jede Anforderung, eine aktualisierte Stückliste und der PR.
+- Anforderungen werden nie stillschweigend weggelassen oder abgeschwächt. Ist eine nicht umsetzbar, den Nutzer fragen.
+- Vor dem Merge wird jeder PR mit dem Skill `review` geprüft (`.claude/skills/review/`), möglichst in einer frischen Sitzung. Das Review ändert nichts. Befunde behebt der Skill `umsetzung`.
+- Ablauf: **Anforderungsanalyse → Freigabe durch den Nutzer → Umsetzung → Review → Merge durch den Nutzer**
+- Der Skill `neue-anforderung` (`.claude/skills/neue-anforderung/`) führt diesen Ablauf komplett durch. Umsetzung, Review und Einarbeitung laufen in eigenen Agenten, nacheinander und mit höchstens 5 Durchläufen. Umgesetzt wird nur nach ausdrücklicher Freigabe, gemergt wird nur durch den Nutzer.
 - Grundsatzentscheidungen kommen zusätzlich in `docs/plan.md` unter „Entscheidungen“.
 
 ## Struktur
@@ -38,7 +43,7 @@ Bevor du größere Arbeiten beginnst, lies `docs/plan.md`. Dort stehen der Gesam
 | `cad/fusion/` | Fusion-Quelldateien (`.f3d`) |
 | `cad/step/` | STEP-Exporte |
 | `print/stl/`, `print/3mf/` | Druckdateien |
-| `electronics/` | Schaltpläne, Platinen, Firmware |
+| `electronics/` | KiCad-Projekte (Schaltplan, Platine), Fertigungsdaten, Firmware |
 | `bom/stueckliste.csv` | Stückliste |
 | `docs/` | Plan, Anforderungen, Bauanleitung |
 
@@ -56,6 +61,12 @@ Bevor du größere Arbeiten beginnst, lies `docs/plan.md`. Dort stehen der Gesam
 - Maße werden als benannte Benutzerparameter angelegt (z. B. `radstand`, `spurbreite`), damit das Modell parametrisch bleibt.
 - Nach Änderungen am Modell einen Screenshot zur Kontrolle machen.
 - Fusion speichert Designs in der Cloud. Für das Repository das Design als `.f3d` nach `cad/fusion/` und als `.step` nach `cad/step/` exportieren.
+
+## Elektronik (KiCad über MCP-Server)
+- Schaltplan und Platine entstehen in KiCad 10 über den KiCad-MCP-Server (`kicad` in `.mcp.json`).
+- Ein KiCad-Projekt pro Baugruppe in `electronics/<baugruppe>/`, projekteigene Bibliotheken in `lib/`, Fertigungsdaten in `fertigung/`.
+- Verbindlicher Nachweis für ERC und DRC ist `kicad-cli`: ohne Fehler, DRC mit `--schematic-parity`.
+- KiCad-Dateien sind Text und werden nicht über LFS versioniert.
 
 ## Sicherheit
 - LiPo-Schutz, Failsafe bei Signalverlust und Schutz vor drehenden Teilen sind immer Pflicht (MUSS) und werden nie weggelassen.

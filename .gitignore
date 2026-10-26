@@ -18,3 +18,11 @@
 __pycache__/
 *.pyc
 .venv/
+
+# KiCad
+*-backups/
+fp-info-cache
+*.lck
+\#auto_saved_files#
+_autosave-*
+*.kicad_prl

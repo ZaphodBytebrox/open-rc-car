@@ -48,6 +48,9 @@ Das Ergebnis als `docs/anforderungen/<baugruppe>.md` schreiben, nach der Vorlage
 - Neue Grundsatzentscheidungen, die mehrere Baugruppen betreffen, auch in `docs/plan.md` unter „Entscheidungen“ eintragen.
 
 ### 6. Abschluss
+- Den Status auf **abgestimmt** setzen, wenn keine offenen Punkte die Umsetzung blockieren und der Nutzer die Entscheidungen bestätigt hat. Sonst bleibt der Status **Entwurf**.
+- Die Umsetzung macht danach der Skill `umsetzung`.
+
 Dem Nutzer in wenigen Sätzen sagen:
 - welche Entscheidungen jetzt feststehen
 - welche Annahmen getroffen wurden
