@@ -27,6 +27,8 @@ Ziel: ein offenes 1:10-Allround-Buggy zum Selberbauen. Version 1 fährt mit gedr
 | 2026-10-26 | Räder v1 | Allround-Räder Carson All Terrain 4WD (Ø 85 × 40 mm, 12 mm Sechskant, fertig verklebt) statt weicher Rennreifen; Einsatz auch auf Asphalt, längere Haltbarkeit. Nutzerentscheidung 2026-10-27: Räder bleiben, Einpresstiefe, Nabentiefe und Felgengröße werden am Teil gemessen, die Konstruktion gleicht über Radträger und Mitnehmer aus |
 | 2026-10-26 | ELRS-Empfänger | HelloRadio HR7E (8 PWM-Ausgänge, ExpressLRS), Firmware mit Regulatory Domain EU_CE_2400 (LBT); Failsafe Kanal 2 (Gas) = 1500 µs, Kanal 1 (Lenkung) = 1500 µs |
 | 2026-10-26 | Bezugsquellen v1 | Horizon Hobby EU (TLR-Teile, Lager 5x13x4), Modellbau Lindinger (Elektronik, Räder, Normteile), RC Team (Akku, Lager, XT60, UBEC); Stückliste `bom/stueckliste.csv` |
+| 2026-10-27 | Radstand | **283,5 mm** statt 280 mm, wie der Spender TLR 22X-4; die Mittelwellen 93/68 mm sind darauf abgestimmt (`docs/anforderungen/skelett.md`) |
+| 2026-10-27 | Skelettmodell | Fusion-Projekt „open-rc-car“, Design „open-rc-car-skelett“ (Hybrid-Design). Ergebnis: alles passt, Grundplatte 335,5 × 154 mm, für den Druck geteilt bei X = 50 mm mit 30 mm Überlappung (Teile 232,75 und 132,75 mm lang), siehe `docs/skelett.md` |
 
 ## Vorgeschlagene Architektur (noch zu bestätigen)
 
@@ -47,7 +49,7 @@ Diese Werte werden in Fusion als Benutzerparameter angelegt und können später 
 
 | Parameter | Startwert |
 |---|---|
-| `radstand` | 280 mm |
+| `radstand` | 283,5 mm (wie Spender TLR 22X-4, Entscheidung 2026-10-27) |
 | `spurbreite` | 250 mm (über die Räder) |
 | `rad_durchmesser` | ca. 85 mm (2,2"-Buggy-Felgen) |
 | `radmitnehmer` | 12 mm Sechskant |
@@ -65,7 +67,7 @@ Diese Werte werden in Fusion als Benutzerparameter angelegt und können später 
 - [x] Spenderplattform für Zukaufteile wählen (`docs/zukaufteile-v1.md`)
 - [x] Zukaufteile v1 festlegen (`bom/stueckliste.csv`, `docs/zukaufteile-v1.md`)
 - [ ] Zukaufteile v1 bestellen (Nutzer; vorher Lieferbarkeit und Preis der Dämpfer prüfen)
-- [ ] Skelettmodell in Fusion: Parameter, Radpositionen, Hüllkörper der Zukaufteile
+- [x] Skelettmodell in Fusion: Parameter, Radpositionen, Hüllkörper der Zukaufteile (`docs/skelett.md`)
 
 ### Phase 1: Mechanik v1, 2WD-Prototyp aus dem Drucker
 Reihenfolge nach Abhängigkeiten. Für jede Baugruppe wird vorher eine Anforderungsanalyse gemacht.
