@@ -1,6 +1,6 @@
 # Grobplan open-rc-car
 
-**Stand:** 2026-10-26
+**Stand:** 2026-10-27
 
 Ziel: ein offenes 1:10-Allround-Buggy zum Selberbauen. Version 1 fährt mit gedruckten Teilen und zugekauftem Fahrtenregler, Motor und Fernsteuerung. Danach werden Schritt für Schritt Teile durch eigene Konstruktionen ersetzt: Allrad, gefräste Aluteile und eigene Elektronik.
 
@@ -18,6 +18,15 @@ Ziel: ein offenes 1:10-Allround-Buggy zum Selberbauen. Version 1 fährt mit gedr
 | 2026-10-26 | Lenkservo | Standardservo 40 × 20 mm |
 | 2026-10-26 | Elektronik-Werkzeug | KiCad 10 über einen KiCad-MCP-Server; Prüfung und Export mit `kicad-cli` |
 | 2026-10-26 | KiCad-MCP-Server | `kicad-mcp-pro` 4.4.0 (MIT, unterstützt KiCad 10), Profil `builder` (216 Tools), Modus `write`. Verworfen: Konnect (wird archiviert, Nachfolger ist Closed Source) und `mcp-server-kicad` (nur noch Wartung). |
+| 2026-10-26 | Höchstgeschwindigkeit und Budget v1 | ca. 50 km/h; Zukaufteile v1 600–1050 € inkl. Versand (ohne Sender, Ladegerät, Werkzeug); am 2026-10-26 erst wegen der Dämpfer von 600–900 € auf 600–1000 €, dann für die vollständige Liste mit allen Kleinteilen auf 600–1050 € angehoben |
+| 2026-10-26 | Spenderplattform | Team Losi Racing 22X-4 (Ersatzteile der Elite, Bausatz TLR03026): 4WD, Kegelrad-Diffs vorne und hinten, CVA-Wellen, 12-mm-Sechskant, Spur 250 mm, Radstand 283,5 mm. Verglichen mit RC10B74.2 und XRAY XB4, Begründung in `docs/zukaufteile-v1.md` |
+| 2026-10-26 | Zahnrad-Pitch | 48 Pitch; Diff-Übersetzung 2,5 : 1; Hauptzahnrad 78 Z, Motorritzel 26 Z (rechnerisch 51,4 km/h im Leerlauf, real darunter; am Prototyp messen) |
+| 2026-10-26 | Mittelantrieb v1 | Rutschkupplung TLR232137 statt Mitteldiff (ein offenes Mitteldiff treibt bei freiem Vorderabtrieb hinten nicht an); Abtrieb nach vorne bleibt für 4WD |
+| 2026-10-26 | Motor/Regler v1 | Hobbywing QuicRun 3652SL G2 3250 kV + QuicRun WP10BL60 G2; Unterspannung 3,4 V/Zelle, BEC 6 V/3 A |
+| 2026-10-27 | Servoversorgung v1 | **Nutzerentscheidung:** Externer BEC Hobbywing UBEC 10A V2 auf 6,0 V für Empfänger und Servo statt Regler-BEC, weil das Servo Savöx SC-1258TG+ bis 5 A Blockierstrom zieht und der Regler-BEC nur 3 A liefert; rote Ader des Regler-Steuerkabels abziehen. Der Reglerschalter schaltet Empfänger und Servo dann nicht ab → Akku nach der Fahrt sofort abstecken |
+| 2026-10-26 | Räder v1 | Allround-Räder Carson All Terrain 4WD (Ø 85 × 40 mm, 12 mm Sechskant, fertig verklebt) statt weicher Rennreifen; Einsatz auch auf Asphalt, längere Haltbarkeit. Nutzerentscheidung 2026-10-27: Räder bleiben, Einpresstiefe, Nabentiefe und Felgengröße werden am Teil gemessen, die Konstruktion gleicht über Radträger und Mitnehmer aus |
+| 2026-10-26 | ELRS-Empfänger | HelloRadio HR7E (8 PWM-Ausgänge, ExpressLRS), Firmware mit Regulatory Domain EU_CE_2400 (LBT); Failsafe Kanal 2 (Gas) = 1500 µs, Kanal 1 (Lenkung) = 1500 µs |
+| 2026-10-26 | Bezugsquellen v1 | Horizon Hobby EU (TLR-Teile, Lager 5x13x4), Modellbau Lindinger (Elektronik, Räder, Normteile), RC Team (Akku, Lager, XT60, UBEC); Stückliste `bom/stueckliste.csv` |
 
 ## Vorgeschlagene Architektur (noch zu bestätigen)
 
@@ -53,8 +62,9 @@ Diese Werte werden in Fusion als Benutzerparameter angelegt und können später 
 - [x] Repository, Lizenz, Struktur
 - [x] Skill für die Anforderungsanalyse
 - [x] Grundsatzentscheidungen
-- [ ] Spenderplattform für Zukaufteile wählen (siehe „Offene Punkte“)
-- [ ] Zukaufteile v1 festlegen und bestellen (`bom/stueckliste.csv`)
+- [x] Spenderplattform für Zukaufteile wählen (`docs/zukaufteile-v1.md`)
+- [x] Zukaufteile v1 festlegen (`bom/stueckliste.csv`, `docs/zukaufteile-v1.md`)
+- [ ] Zukaufteile v1 bestellen (Nutzer; vorher Lieferbarkeit und Preis der Dämpfer prüfen)
 - [ ] Skelettmodell in Fusion: Parameter, Radpositionen, Hüllkörper der Zukaufteile
 
 ### Phase 1: Mechanik v1, 2WD-Prototyp aus dem Drucker
@@ -89,14 +99,15 @@ Steigender Schwierigkeitsgrad. Jede Stufe ersetzt genau ein Zukaufteil.
 4. Optional: Telemetrie (Akkuspannung, Temperatur), Licht
 
 ## Offene Punkte
-- [ ] **Spenderplattform:**
+- [x] **Spenderplattform:** TLR 22X-4, siehe „Entscheidungen“
   - Differential, Dämpfer, Antriebswellen (CVD/Knochen), Radmitnehmer, Lager und Zahnräder möglichst als Ersatzteile *eines* verbreiteten 1:10-Buggys kaufen. So passen die Teile zueinander und sind einzeln nachkaufbar.
-  - Kandidaten noch recherchieren und vergleichen.
-- [ ] **Zahnradmodul** für Motorritzel und Hauptzahnrad. Hängt von der Spenderplattform ab.
-- [ ] **ELRS-Empfänger mit PWM-Ausgängen:** Regler und Servo brauchen PWM, viele ELRS-Empfänger geben nur CRSF aus.
-- [ ] **Sender v1:** z. B. ein Pistolengriff-Sender mit eingebautem ELRS
+  - Verglichen wurden RC10B74.2, XRAY XB4 und TLR 22X-4 (`docs/zukaufteile-v1.md`).
+- [x] **Zahnradmodul** für Motorritzel und Hauptzahnrad: 48 Pitch
+- [x] **ELRS-Empfänger mit PWM-Ausgängen:** HelloRadio HR7E
+- [ ] **Sender v1:** z. B. ein Pistolengriff-Sender mit eingebautem ELRS. Der Sender muss mit der Regulatory Domain **EU_CE_2400** (LBT) laufen, wie der Empfänger HR7E
 - [ ] **Karosserie:** zugekaufte 1:10-Buggy-Karosserie aus Lexan, oder eigene
-- [ ] **Höchstgeschwindigkeit und Budget** für v1
+- [x] **Höchstgeschwindigkeit und Budget** für v1: ca. 50 km/h, 600–1050 €
+- [ ] **Dämpfer v1:** TLR-Dämpfersatz TLR233064 derzeit nicht lieferbar, Preis offen. Lieferbarkeit und Preis bei der Bestellung prüfen. Alle Posten mit Preis: 812,56 €; mit Dämpfern (Vergleichspreis Associated 91994/91995, 2 × 75,90–76,90 €) 964,36–966,36 €; mit den Richtpreisen der Teile „manuell suchen“ (Spurstangen, TLR232110, TLR236006) 1042,34–1044,34 €, knapp im Budget von 1050 €. Kostet ein Dämpfersatz mehr als 79,73 €, wird 1050 € überschritten (`docs/zukaufteile-v1.md`, Abschnitt „Budget“)
 - [ ] **Portalfräse:** Verfahrweg und welche Aluminiumlegierung (z. B. 6061/7075)
 
 ## Arbeitsweise
