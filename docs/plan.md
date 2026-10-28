@@ -1,6 +1,6 @@
 # Grobplan open-rc-car
 
-**Stand:** 2026-10-27
+**Stand:** 2026-10-28
 
 Ziel: ein offenes 1:10-Allround-Buggy zum Selberbauen. Version 1 fährt mit gedruckten Teilen und zugekauftem Fahrtenregler, Motor und Fernsteuerung. Danach werden Schritt für Schritt Teile durch eigene Konstruktionen ersetzt: Allrad, gefräste Aluteile und eigene Elektronik.
 
@@ -29,6 +29,13 @@ Ziel: ein offenes 1:10-Allround-Buggy zum Selberbauen. Version 1 fährt mit gedr
 | 2026-10-26 | Bezugsquellen v1 | Horizon Hobby EU (TLR-Teile, Lager 5x13x4), Modellbau Lindinger (Elektronik, Räder, Normteile), RC Team (Akku, Lager, XT60, UBEC); Stückliste `bom/stueckliste.csv` |
 | 2026-10-27 | Radstand | **283,5 mm** statt 280 mm, wie der Spender TLR 22X-4; die Mittelwellen 93/68 mm sind darauf abgestimmt (`docs/anforderungen/skelett.md`) |
 | 2026-10-27 | Skelettmodell | Fusion-Projekt „open-rc-car“, Design „open-rc-car-skelett“ (Hybrid-Design). Ergebnis: alles passt, Grundplatte 335,5 × 154 mm, für den Druck geteilt bei X = 50 mm mit 30 mm Überlappung (Teile 232,75 und 132,75 mm lang), siehe `docs/skelett.md` |
+| 2026-10-28 | Spenderplattform (ersetzt 2026-10-26) | **Tamiya TT-02B** statt TLR 22X-4, für einen günstigen Einstieg. Abschläge bei Spur, Radstand, Federweg und Zahnradmodul sind akzeptiert. Die Einträge zu Spender, Pitch, Mittelantrieb, Rädern, Bezugsquellen und Radstand vom 2026-10-26/27 gelten damit nicht mehr (`docs/anforderungen/zukaufteile-v1.md`, Fassung 2) |
+| 2026-10-28 | Teilebeschaffung v1 | Ein **TT-02B-Bausatz** wird als Teilespender gekauft (Ausnahme von „nur Einzelteile“). Chassis, Getriebegehäuse, Querlenker, Radträger und Halter bleiben Eigenbau |
+| 2026-10-28 | Fahrzeugmaße | Spur, Radstand, Raddurchmesser und Federweg vom TT-02B übernommen (Startwerte unten) |
+| 2026-10-28 | Zahnradmodul | Tamiya Modul 0,6 statt 48 Pitch |
+| 2026-10-28 | Mittelantrieb v1 (ersetzt 2026-10-26) | **Eigene Rutschkupplung** (Eigenbau), weil es für den TT-02 keine gibt; Ziel ca. 50 km/h mit Brushless bleibt |
+| 2026-10-28 | Räder v1 (ersetzt 2026-10-26) | Räder aus dem TT-02B-Bausatz statt Carson All Terrain |
+| 2026-10-28 | Bausatz und Bezugsquellen v1 (ersetzt 2026-10-26) | Tamiya **Neo Scorcher 58568** (TT-02B) bei TAMICO; Lindinger (Elektronik, Lagersatz, Normteile), RC Team (Akku, UBEC, XT60, Lenkungslager); Horizon EU entfällt. Motorritzel 25Z Modul 0,6 (Tamiya 50477) für rechnerisch 51,1 km/h, manuell suchen. Summe ca. 512 € inkl. Versand (`docs/zukaufteile-v1.md`) |
 
 ## Vorgeschlagene Architektur (noch zu bestätigen)
 
@@ -49,12 +56,12 @@ Diese Werte werden in Fusion als Benutzerparameter angelegt und können später 
 
 | Parameter | Startwert |
 |---|---|
-| `radstand` | 283,5 mm (wie Spender TLR 22X-4, Entscheidung 2026-10-27) |
-| `spurbreite` | 250 mm (über die Räder) |
-| `rad_durchmesser` | ca. 85 mm (2,2"-Buggy-Felgen) |
+| `radstand` | ca. 266 mm (wie Spender TT-02B, Entscheidung 2026-10-28; genauer Wert mit Quelle bei der Umsetzung) |
+| `spurbreite` | ca. 208–217 mm (TT-02B: hinten 208, vorne 217 mm; Entscheidung 2026-10-28) |
+| `rad_durchmesser` | ca. 82 mm (Räder aus dem TT-02B-Bausatz) |
 | `radmitnehmer` | 12 mm Sechskant |
 | `bodenfreiheit` | 25 mm |
-| `federweg` | 35 mm |
+| `federweg` | wie TT-02B-Dämpfer (Wert bei der Umsetzung, sonst am Teil messen) |
 | `plattenstaerke` | 4 mm für Alu. Der Druck wird dicker oder mit Rippen gebaut. |
 | `zielgewicht` | ≤ 2,0 kg fahrfertig |
 
@@ -66,8 +73,9 @@ Diese Werte werden in Fusion als Benutzerparameter angelegt und können später 
 - [x] Grundsatzentscheidungen
 - [x] Spenderplattform für Zukaufteile wählen (`docs/zukaufteile-v1.md`)
 - [x] Zukaufteile v1 festlegen (`bom/stueckliste.csv`, `docs/zukaufteile-v1.md`)
-- [ ] Zukaufteile v1 bestellen (Nutzer; vorher Lieferbarkeit und Preis der Dämpfer prüfen)
-- [x] Skelettmodell in Fusion: Parameter, Radpositionen, Hüllkörper der Zukaufteile (`docs/skelett.md`)
+- [x] Zukaufteile v1 auf Tamiya TT-02B umgestellt (2026-10-28, `docs/zukaufteile-v1.md`)
+- [ ] Zukaufteile v1 bestellen (Nutzer; Ritzel-Set 50477 manuell suchen, Dichtung des Lagersatzes beim Auspacken prüfen)
+- [x] Skelettmodell in Fusion: Parameter, Radpositionen, Hüllkörper der Zukaufteile (`docs/skelett.md`); muss auf die TT-02B-Maße angepasst werden
 
 ### Phase 1: Mechanik v1, 2WD-Prototyp aus dem Drucker
 Reihenfolge nach Abhängigkeiten. Für jede Baugruppe wird vorher eine Anforderungsanalyse gemacht.
@@ -101,15 +109,17 @@ Steigender Schwierigkeitsgrad. Jede Stufe ersetzt genau ein Zukaufteil.
 4. Optional: Telemetrie (Akkuspannung, Temperatur), Licht
 
 ## Offene Punkte
-- [x] **Spenderplattform:** TLR 22X-4, siehe „Entscheidungen“
+- [x] **Spenderplattform:** Tamiya TT-02B (seit 2026-10-28, vorher TLR 22X-4), siehe „Entscheidungen“
   - Differential, Dämpfer, Antriebswellen (CVD/Knochen), Radmitnehmer, Lager und Zahnräder möglichst als Ersatzteile *eines* verbreiteten 1:10-Buggys kaufen. So passen die Teile zueinander und sind einzeln nachkaufbar.
   - Verglichen wurden RC10B74.2, XRAY XB4 und TLR 22X-4 (`docs/zukaufteile-v1.md`).
-- [x] **Zahnradmodul** für Motorritzel und Hauptzahnrad: 48 Pitch
+- [x] **Zahnradmodul** für Motorritzel und Hauptzahnrad: Tamiya Modul 0,6 (seit 2026-10-28, vorher 48 Pitch)
 - [x] **ELRS-Empfänger mit PWM-Ausgängen:** HelloRadio HR7E
 - [ ] **Sender v1:** z. B. ein Pistolengriff-Sender mit eingebautem ELRS. Der Sender muss mit der Regulatory Domain **EU_CE_2400** (LBT) laufen, wie der Empfänger HR7E
 - [ ] **Karosserie:** zugekaufte 1:10-Buggy-Karosserie aus Lexan, oder eigene
-- [x] **Höchstgeschwindigkeit und Budget** für v1: ca. 50 km/h, 600–1050 €
-- [ ] **Dämpfer v1:** TLR-Dämpfersatz TLR233064 derzeit nicht lieferbar, Preis offen. Lieferbarkeit und Preis bei der Bestellung prüfen. Alle Posten mit Preis: 812,56 €; mit Dämpfern (Vergleichspreis Associated 91994/91995, 2 × 75,90–76,90 €) 964,36–966,36 €; mit den Richtpreisen der Teile „manuell suchen“ (Spurstangen, TLR232110, TLR236006) 1042,34–1044,34 €, knapp im Budget von 1050 €. Kostet ein Dämpfersatz mehr als 79,73 €, wird 1050 € überschritten (`docs/zukaufteile-v1.md`, Abschnitt „Budget“)
+- [x] **Höchstgeschwindigkeit und Budget** für v1: ca. 50 km/h, 600–1050 €; seit dem Plattformwechsel 2026-10-28 gilt nur die Obergrenze 1050 € (günstiger Einstieg, Summe ca. 512 €)
+- [x] ~~**Dämpfer v1:**~~ entfällt durch den Plattformwechsel 2026-10-28 (Dämpfer aus dem TT-02B). Alter Stand: TLR-Dämpfersatz TLR233064 derzeit nicht lieferbar, Preis offen. Lieferbarkeit und Preis bei der Bestellung prüfen. Alle Posten mit Preis: 812,56 €; mit Dämpfern (Vergleichspreis Associated 91994/91995, 2 × 75,90–76,90 €) 964,36–966,36 €; mit den Richtpreisen der Teile „manuell suchen“ (Spurstangen, TLR232110, TLR236006) 1042,34–1044,34 €, knapp im Budget von 1050 €. Kostet ein Dämpfersatz mehr als 79,73 €, wird 1050 € überschritten (`docs/zukaufteile-v1.md`, Abschnitt „Budget“)
+- [ ] **Stückliste Tamiya-Einzelteile für Mehrfachbauten:** Für weitere Fahrzeuge ohne Bausatz alle genutzten TT-02B-Teile mit Tamiya-Teilenummer und Bezugsquelle auflisten (Nutzerwunsch 2026-10-28, später)
+- [ ] **Grundplatte/Oberdeck (PR #6) und Skelett** auf die TT-02B-Maße anpassen (PR #6 pausiert seit 2026-10-28)
 - [ ] **Portalfräse:** Verfahrweg und welche Aluminiumlegierung (z. B. 6061/7075)
 
 ## Arbeitsweise

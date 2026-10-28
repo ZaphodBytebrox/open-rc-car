@@ -3,7 +3,7 @@
 - **Kürzel:** FZG
 - **Domäne:** beides
 - **Status:** Entwurf
-- **Stand:** 2026-10-26
+- **Stand:** 2026-10-28
 
 ## Zweck
 Ein offenes 1:10-Allround-Buggy. Version 1 nutzt eine zugekaufte Antriebs- und Funkelektronik. Alle Schnittstellen sind so festgelegt, dass eigene Mechanik- und Elektronikteile die Zukaufteile später ersetzen können.
@@ -24,7 +24,7 @@ Ein offenes 1:10-Allround-Buggy. Version 1 nutzt eine zugekaufte Antriebs- und F
 | MECH-FZG-002 | MUSS | Antrieb v1: 2WD hinten. Die Grundplatte hat Platz und Lochbilder für das spätere Vorderdifferential und die vordere Welle. | Hüllkörper für den 4WD-Antriebsstrang im Modell kollisionsfrei |
 | MECH-FZG-003 | MUSS | Alle selbst konstruierten Teile v1 sind auf einem Drucker mit 256 × 256 × 256 mm druckbar | Jedes Teil liegt im Slicer ohne Skalierung im Bauraum |
 | MECH-FZG-004 | MUSS | Die Grundplatte ist fräsgerecht konstruiert (2,5D, Innenradien ≥ 1,5 mm), damit sie später als Aluteil gefertigt werden kann | Sichtprüfung in Fusion, CAM-Simulation ohne Kollision |
-| MECH-FZG-005 | MUSS | Einzelradaufhängung vorne und hinten mit Öldämpfern (Zukauf) | Federweg ≥ 30 mm pro Rad |
+| MECH-FZG-005 | MUSS | Einzelradaufhängung vorne und hinten mit Öldämpfern (Zukauf bzw. aus dem TT-02B-Bausatz) | Federweg pro Rad mindestens so groß wie beim TT-02B mit denselben Dämpfern (bis 2026-10-27: ≥ 30 mm; Abschlag vom Nutzer am 2026-10-28 akzeptiert) |
 | MECH-FZG-006 | SOLL | Bodenfreiheit etwa 25 mm | Messung am fahrfertigen Fahrzeug |
 | MECH-FZG-007 | SOLL | Gewicht fahrfertig ≤ 2,0 kg | Wiegen |
 | MECH-FZG-008 | MUSS | Akku ohne Werkzeug oder mit höchstens einer Schraube wechselbar | Wechsel in < 1 min |
@@ -42,11 +42,12 @@ Ein offenes 1:10-Allround-Buggy. Version 1 nutzt eine zugekaufte Antriebs- und F
 - 2026-10-26: Zuerst 2WD, später 4WD
 - 2026-10-26: Prototyp gedruckt (256 mm Bauraum), später Grundplatte und hoch belastete Teile aus gefrästem Alu
 - 2026-10-26: Brushless sensorless 2S, ELRS, Standardservo
+- 2026-10-28: Spenderplattform Tamiya TT-02B; Spur, Radstand, Raddurchmesser und Federweg vom TT-02B (siehe `zukaufteile-v1.md`)
 
 ## Annahmen (abgeleitet, noch nicht bestätigt)
 - Mittelmotor-Layout mit Kardanwelle, damit der Umstieg auf 4WD ohne Neukonstruktion möglich ist
 - Die Grundplatte wird im Druck-Prototyp zweiteilig gebaut, weil sie mit etwa 330–380 mm länger als 256 mm ist
-- Startwerte: Radstand 280 mm, Spurbreite 250 mm, Raddurchmesser etwa 85 mm, Sechskant 12 mm
+- Startwerte: seit 2026-10-28 vom TT-02B (Radstand ca. 266 mm, Spur ca. 208–217 mm, Raddurchmesser ca. 82 mm), Sechskant 12 mm; aktuelle Werte in `docs/plan.md`
 - Ein Spritzwasserschutz ist für v1 nicht nötig
 
 ## Offene Punkte
