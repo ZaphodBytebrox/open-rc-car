@@ -1,6 +1,6 @@
 # Grobplan open-rc-car
 
-**Stand:** 2026-10-28
+**Stand:** 2026-10-31
 
 Ziel: ein offenes 1:10-Allround-Buggy zum Selberbauen. Version 1 fährt mit gedruckten Teilen und zugekauftem Fahrtenregler, Motor und Fernsteuerung. Danach werden Schritt für Schritt Teile durch eigene Konstruktionen ersetzt: Allrad, gefräste Aluteile und eigene Elektronik.
 
@@ -38,6 +38,8 @@ Ziel: ein offenes 1:10-Allround-Buggy zum Selberbauen. Version 1 fährt mit gedr
 | 2026-10-28 | Layout wie TT-02B (ersetzt Mittelmotor-Layout) | **Nutzerentscheidung:** Layout genau wie der TT-02B (Bauanleitung 11053619): Kardanwelle E1 nur an den Getrieben gelagert, Hauptzahnrad 70Z mit eigener Rutschkupplung auf der hinteren Kegelritzelwelle am Hinterachsgetriebe, Motor hinten rechts, Akku längs links, Elektronik rechts, Servo vorne; Bauraum für Ritzel 16Z–25Z. Grund: Bausatzteile E1/E2 unverändert nutzbar, Plattenmitte frei (`docs/anforderungen/skelett.md`) |
 | 2026-10-28 | Skelettmodell Fassung 2 | Skelett auf TT-02B umgestellt (Design-Version 10): alle Hüllkörper passen mit vorläufigen Maßen kollisionsfrei, Grundplatte 314 × 132 mm, für den Druck geteilt bei X = 0 mit 30 mm Überlappung (Teile je 172 mm lang). Antriebsachse bleibt hoch (56,6 mm), Wellenwinkel bei Lieferung prüfen. Offen für „Mittelantrieb“: Motorwelle reicht mit Motorhalter nicht bis zur Zahnebene (−3 mm); Rutschkupplung passt nach vorläufigen Maßen nicht in Reihe auf E2, Bauraum umschließt den Becher, auch dort fehlen 9 mm (`rk_luft`). MECH-SKE-008 deshalb nur teilweise erfüllt, vom Nutzer so abgenommen (`docs/skelett.md`) |
 | 2026-10-28 | Bausatz und Bezugsquellen v1 (ersetzt 2026-10-26) | Tamiya **Neo Scorcher 58568** (TT-02B) bei TAMICO; Lindinger (Elektronik, Lagersatz, Normteile), RC Team (Akku, UBEC, XT60, Lenkungslager); Horizon EU entfällt. Motorritzel 25Z Modul 0,6 (Tamiya 50477) für rechnerisch 51,1 km/h, manuell suchen. Summe ca. 512 € inkl. Versand (`docs/zukaufteile-v1.md`) |
+| 2026-10-27 | Grundplatte (gilt weiter) | Grundplatte als eigenes Fusion-Design „open-rc-car-grundplatte“, abgeleitet (Derive) vom Skelett; 4 mm im Druck wie in Alu, ohne Rippen; Druck zweiteilig mit Halbüberlappung, Aluvariante einteilig mit identischen Lochbildern; alle Befestigungen von unten mit M3-Senkkopf, Gewinde im aufgesetzten Teil; die Grundplatte legt die Lochbilder aller Baugruppen fest; Akku mit verschraubten Anschlägen (1 mm Spiel) und Bügel mit Schnellverschluss, vorderer Pfosten ersetzt den vorderen Anschlag (2026-10-28); Elektronik-Raster M3 10 × 10 mm; Material PETG zum Testen, Prusament PC fertig |
+| 2026-10-31 | Grundplatte und Oberdeck Fassung 2 | **Nutzerentscheidungen:** Neuaufbau auf dem TT-02B-Skelett (v10) in PR #6. Plattenenden vorne und hinten 15 mm über die Getriebe hinaus verlängert (Rammschutz, Karosseriehalter). **Querlenkerböcke als eigene Teile auf der Platte**, je Achse vor und hinter der Achse neben dem Getriebe. **Oberdeck auf beiden Getrieben plus Mittelstütze** rechts neben der Kardanwelle am Stoß (ersetzt das entfallene Mittelschott, klemmt den Stoß). Eigenes Lochbild für das Lenkhebelsystem. Ergebnis: Grundplatte 344 × 144 mm, Druckteile je 186,8 × 144 mm (Stoß X −15…15), Oberdeck-Unterkante Z 84,2 mm, 107 Bohrungen, Druckteile 247,0 g; Review 1: Parametertest mit dem Skelett bestanden, Lenkhebelbock rechts mit eigener Lage. **Fügespiel am Stoß** 0,2 mm (`stoss_spiel`) an den Stufenflächen der Druckteile, dort Randabstand ≥ 4,8 mm statt 5 mm (Nutzerentscheidung nach Review 1) (`docs/grundplatte-oberdeck.md`) |
 
 ## Vorgeschlagene Architektur (noch zu bestätigen)
 
@@ -65,7 +67,7 @@ Diese Werte werden in Fusion als Benutzerparameter angelegt und können später 
 | `radmitnehmer` | 12 mm Sechskant |
 | `bodenfreiheit` | 25 mm |
 | `federweg` | 35 mm vorläufig (Anleitung nennt keinen Wert; am Prototyp messen) |
-| `plattenstaerke` | 4 mm für Alu. Der Druck wird dicker oder mit Rippen gebaut. |
+| `plattenstaerke` | 4 mm für Alu und Druck (Entscheidung 2026-10-27, keine Rippen) |
 | `zielgewicht` | ≤ 2,0 kg fahrfertig |
 
 ## Phasen
@@ -83,7 +85,7 @@ Diese Werte werden in Fusion als Benutzerparameter angelegt und können später 
 
 ### Phase 1: Mechanik v1, 2WD-Prototyp aus dem Drucker
 Reihenfolge nach Abhängigkeiten. Für jede Baugruppe wird vorher eine Anforderungsanalyse gemacht.
-1. **Grundplatte und Oberdeck**: Lochbilder für alle Baugruppen, Lochraster für die Elektronik, Akkuschacht
+1. **Grundplatte und Oberdeck** *(umgesetzt, Fassung 2, `docs/grundplatte-oberdeck.md`; Probemontage offen; Bohr-NC, Senken und CAM-Simulation der Aluvariante in Phase 3)*: Lochbilder für alle Baugruppen, Lochraster für die Elektronik, Akkuschacht
 2. **Hinterachse**: Getriebe- und Differentialgehäuse, Querlenker, Radträger, Dämpferbrücke
 3. **Mittelantrieb**: Motorhalter mit Zahnspiel-Einstellung, Hauptzahnrad-Lagerung, Kardanwelle nach hinten, Zahnradabdeckung
 4. **Vorderachse und Lenkung**: Querlenker, Achsschenkel, Lenkhebelsystem mit Ackermann, Servohalter, Servo-Saver
@@ -100,6 +102,7 @@ Reihenfolge nach Abhängigkeiten. Für jede Baugruppe wird vorher eine Anforderu
 - Teile, die bei den Tests in Phase 1/2 brechen oder sich verbiegen, kommen zuerst dran
 - Erwartet: Grundplatte, Dämpferbrücken, Lenkhebel, Motorhalter
 - CAM in Fusion, Fräsparameter und Spannmittel unter `cad/`
+- Grundplatte (MECH-CHA-005, Nutzerentscheidungen 2026-10-28): Bohr-NC für alle 107 Bohrungen, Senk-Operation (90°-Senker bzw. Fasenfräser ≥ Ø 7 mm), Taschen-Operation und CAM-Simulation nachholen. Die Bohroperation neu aufsetzen (in Fassung 1 gab der Post nur 1 von 105 Bohrungen aus; Lösungsansatz: Löcher über ihre Mittelpunkte auswählen oder ein Setup von oben). Einzelheiten in `docs/grundplatte-oberdeck.md`
 - Vorher zu klären: Verfahrweg und Steifigkeit der Portalfräse
 
 ### Phase 4: Eigene Elektronik
@@ -123,9 +126,9 @@ Steigender Schwierigkeitsgrad. Jede Stufe ersetzt genau ein Zukaufteil.
 - [x] **Höchstgeschwindigkeit und Budget** für v1: ca. 50 km/h, 600–1050 €; seit dem Plattformwechsel 2026-10-28 gilt nur die Obergrenze 1050 € (günstiger Einstieg, Summe ca. 512 €)
 - [x] ~~**Dämpfer v1:**~~ entfällt durch den Plattformwechsel 2026-10-28 (Dämpfer aus dem TT-02B). Alter Stand: TLR-Dämpfersatz TLR233064 derzeit nicht lieferbar, Preis offen. Lieferbarkeit und Preis bei der Bestellung prüfen. Alle Posten mit Preis: 812,56 €; mit Dämpfern (Vergleichspreis Associated 91994/91995, 2 × 75,90–76,90 €) 964,36–966,36 €; mit den Richtpreisen der Teile „manuell suchen“ (Spurstangen, TLR232110, TLR236006) 1042,34–1044,34 €, knapp im Budget von 1050 €. Kostet ein Dämpfersatz mehr als 79,73 €, wird 1050 € überschritten (`docs/zukaufteile-v1.md`, Abschnitt „Budget“)
 - [ ] **Stückliste Tamiya-Einzelteile für Mehrfachbauten:** Für weitere Fahrzeuge ohne Bausatz alle genutzten TT-02B-Teile mit Tamiya-Teilenummer und Bezugsquelle auflisten (Nutzerwunsch 2026-10-28, später)
-- [ ] **Grundplatte/Oberdeck (PR #6) und Skelett** auf die TT-02B-Maße anpassen (PR #6 pausiert seit 2026-10-28)
+- [x] **Grundplatte/Oberdeck (PR #6) und Skelett** auf die TT-02B-Maße anpassen
   - [x] Skelett umgestellt (Fassung 2, `docs/skelett.md`)
-  - [ ] Grundplatte/Oberdeck (PR #6) auf dem neuen Skelett neu aufbauen
+  - [x] Grundplatte/Oberdeck (PR #6) auf dem neuen Skelett neu aufbauen (Fassung 2, 2026-10-31, `docs/grundplatte-oberdeck.md`)
 - [ ] **Portalfräse:** Verfahrweg und welche Aluminiumlegierung (z. B. 6061/7075)
 
 ## Arbeitsweise
