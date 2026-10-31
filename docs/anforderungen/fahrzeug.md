@@ -20,7 +20,7 @@ Ein offenes 1:10-Allround-Buggy. Version 1 nutzt eine zugekaufte Antriebs- und F
 ## Anforderungen
 | ID | Priorität | Anforderung | Abnahmekriterium |
 |---|---|---|---|
-| MECH-FZG-001 | MUSS | Maßstab 1:10 Buggy, Radstand und Spurbreite als Fusion-Parameter | Parameter `radstand` und `spurbreite` vorhanden. Das Modell aktualisiert sich bei Änderung. |
+| MECH-FZG-001 | MUSS | Maßstab 1:10 Buggy, Radstand und Spurbreite als Fusion-Parameter | Parameter `radstand`, `spurbreite` (hinten) und `spurbreite_v` (vorne) vorhanden. Das Modell aktualisiert sich bei Änderung. |
 | MECH-FZG-002 | MUSS | Antrieb v1: 2WD hinten. Die Grundplatte hat Platz und Lochbilder für das spätere Vorderdifferential und die vordere Welle. | Hüllkörper für den 4WD-Antriebsstrang im Modell kollisionsfrei |
 | MECH-FZG-003 | MUSS | Alle selbst konstruierten Teile v1 sind auf einem Drucker mit 256 × 256 × 256 mm druckbar | Jedes Teil liegt im Slicer ohne Skalierung im Bauraum |
 | MECH-FZG-004 | MUSS | Die Grundplatte ist fräsgerecht konstruiert (2,5D, Innenradien ≥ 1,5 mm), damit sie später als Aluteil gefertigt werden kann | Sichtprüfung in Fusion, CAM-Simulation ohne Kollision |

@@ -35,11 +35,13 @@ Ziel: ein offenes 1:10-Allround-Buggy zum Selberbauen. Version 1 fährt mit gedr
 | 2026-10-28 | Zahnradmodul | Tamiya Modul 0,6 statt 48 Pitch |
 | 2026-10-28 | Mittelantrieb v1 (ersetzt 2026-10-26) | **Eigene Rutschkupplung** (Eigenbau), weil es für den TT-02 keine gibt; Ziel ca. 50 km/h mit Brushless bleibt |
 | 2026-10-28 | Räder v1 (ersetzt 2026-10-26) | Räder aus dem TT-02B-Bausatz statt Carson All Terrain |
+| 2026-10-28 | Layout wie TT-02B (ersetzt Mittelmotor-Layout) | **Nutzerentscheidung:** Layout genau wie der TT-02B (Bauanleitung 11053619): Kardanwelle E1 nur an den Getrieben gelagert, Hauptzahnrad 70Z mit eigener Rutschkupplung auf der hinteren Kegelritzelwelle am Hinterachsgetriebe, Motor hinten rechts, Akku längs links, Elektronik rechts, Servo vorne; Bauraum für Ritzel 16Z–25Z. Grund: Bausatzteile E1/E2 unverändert nutzbar, Plattenmitte frei (`docs/anforderungen/skelett.md`) |
+| 2026-10-28 | Skelettmodell Fassung 2 | Skelett auf TT-02B umgestellt (Design-Version 10): alle Hüllkörper passen mit vorläufigen Maßen kollisionsfrei, Grundplatte 314 × 132 mm, für den Druck geteilt bei X = 0 mit 30 mm Überlappung (Teile je 172 mm lang). Antriebsachse bleibt hoch (56,6 mm), Wellenwinkel bei Lieferung prüfen. Offen für „Mittelantrieb“: Motorwelle reicht mit Motorhalter nicht bis zur Zahnebene (−3 mm); Rutschkupplung passt nach vorläufigen Maßen nicht in Reihe auf E2, Bauraum umschließt den Becher, auch dort fehlen 9 mm (`rk_luft`). MECH-SKE-008 deshalb nur teilweise erfüllt, vom Nutzer so abgenommen (`docs/skelett.md`) |
 | 2026-10-28 | Bausatz und Bezugsquellen v1 (ersetzt 2026-10-26) | Tamiya **Neo Scorcher 58568** (TT-02B) bei TAMICO; Lindinger (Elektronik, Lagersatz, Normteile), RC Team (Akku, UBEC, XT60, Lenkungslager); Horizon EU entfällt. Motorritzel 25Z Modul 0,6 (Tamiya 50477) für rechnerisch 51,1 km/h, manuell suchen. Summe ca. 512 € inkl. Versand (`docs/zukaufteile-v1.md`) |
 
 ## Vorgeschlagene Architektur (noch zu bestätigen)
 
-**Mittelmotor-Layout:** Motor und Hauptzahnrad sitzen in der Fahrzeugmitte. Eine Kardanwelle führt zum Hinterachsdifferential.
+*Überholt durch die Entscheidung „Layout wie TT-02B“ vom 2026-10-28 (Motor und Hauptzahnrad am Hinterachsgetriebe). Der ursprüngliche Vorschlag:* **Mittelmotor-Layout:** Motor und Hauptzahnrad sitzen in der Fahrzeugmitte. Eine Kardanwelle führt zum Hinterachsdifferential.
 - In v1 ist nur der hintere Abtrieb belegt.
 - Für 4WD kommen eine zweite Welle und ein Vorderachsdifferential dazu. Grundplatte, Motorhalter und Schwerpunkt bleiben gleich.
 - So muss für den Umstieg auf Allrad nichts neu konstruiert werden.
@@ -56,12 +58,13 @@ Diese Werte werden in Fusion als Benutzerparameter angelegt und können später 
 
 | Parameter | Startwert |
 |---|---|
-| `radstand` | ca. 266 mm (wie Spender TT-02B, Entscheidung 2026-10-28; genauer Wert mit Quelle bei der Umsetzung) |
-| `spurbreite` | ca. 208–217 mm (TT-02B: hinten 208, vorne 217 mm; Entscheidung 2026-10-28) |
-| `rad_durchmesser` | ca. 82 mm (Räder aus dem TT-02B-Bausatz) |
+| `radstand` | 266 mm (Tamiya TT-02B 58568, Specifications) |
+| `spurbreite` | 208 mm hinten (Radmitte zu Radmitte, Tamiya TT-02B 58568) |
+| `spurbreite_v` | 217 mm vorne (Radmitte zu Radmitte, Tamiya TT-02B 58568) |
+| `rad_durchmesser` | 82 mm (Räder aus dem TT-02B-Bausatz; Breite 32 mm vorne, 41 mm hinten) |
 | `radmitnehmer` | 12 mm Sechskant |
 | `bodenfreiheit` | 25 mm |
-| `federweg` | wie TT-02B-Dämpfer (Wert bei der Umsetzung, sonst am Teil messen) |
+| `federweg` | 35 mm vorläufig (Anleitung nennt keinen Wert; am Prototyp messen) |
 | `plattenstaerke` | 4 mm für Alu. Der Druck wird dicker oder mit Rippen gebaut. |
 | `zielgewicht` | ≤ 2,0 kg fahrfertig |
 
@@ -75,7 +78,8 @@ Diese Werte werden in Fusion als Benutzerparameter angelegt und können später 
 - [x] Zukaufteile v1 festlegen (`bom/stueckliste.csv`, `docs/zukaufteile-v1.md`)
 - [x] Zukaufteile v1 auf Tamiya TT-02B umgestellt (2026-10-28, `docs/zukaufteile-v1.md`)
 - [ ] Zukaufteile v1 bestellen (Nutzer; Ritzel-Set 50477 manuell suchen, Dichtung des Lagersatzes beim Auspacken prüfen)
-- [x] Skelettmodell in Fusion: Parameter, Radpositionen, Hüllkörper der Zukaufteile (`docs/skelett.md`); muss auf die TT-02B-Maße angepasst werden
+- [x] Skelettmodell in Fusion: Parameter, Radpositionen, Hüllkörper der Zukaufteile (`docs/skelett.md`)
+- [x] Skelettmodell auf die TT-02B-Maße umgestellt (2026-10-28, Fassung 2)
 
 ### Phase 1: Mechanik v1, 2WD-Prototyp aus dem Drucker
 Reihenfolge nach Abhängigkeiten. Für jede Baugruppe wird vorher eine Anforderungsanalyse gemacht.
@@ -120,6 +124,8 @@ Steigender Schwierigkeitsgrad. Jede Stufe ersetzt genau ein Zukaufteil.
 - [x] ~~**Dämpfer v1:**~~ entfällt durch den Plattformwechsel 2026-10-28 (Dämpfer aus dem TT-02B). Alter Stand: TLR-Dämpfersatz TLR233064 derzeit nicht lieferbar, Preis offen. Lieferbarkeit und Preis bei der Bestellung prüfen. Alle Posten mit Preis: 812,56 €; mit Dämpfern (Vergleichspreis Associated 91994/91995, 2 × 75,90–76,90 €) 964,36–966,36 €; mit den Richtpreisen der Teile „manuell suchen“ (Spurstangen, TLR232110, TLR236006) 1042,34–1044,34 €, knapp im Budget von 1050 €. Kostet ein Dämpfersatz mehr als 79,73 €, wird 1050 € überschritten (`docs/zukaufteile-v1.md`, Abschnitt „Budget“)
 - [ ] **Stückliste Tamiya-Einzelteile für Mehrfachbauten:** Für weitere Fahrzeuge ohne Bausatz alle genutzten TT-02B-Teile mit Tamiya-Teilenummer und Bezugsquelle auflisten (Nutzerwunsch 2026-10-28, später)
 - [ ] **Grundplatte/Oberdeck (PR #6) und Skelett** auf die TT-02B-Maße anpassen (PR #6 pausiert seit 2026-10-28)
+  - [x] Skelett umgestellt (Fassung 2, `docs/skelett.md`)
+  - [ ] Grundplatte/Oberdeck (PR #6) auf dem neuen Skelett neu aufbauen
 - [ ] **Portalfräse:** Verfahrweg und welche Aluminiumlegierung (z. B. 6061/7075)
 
 ## Arbeitsweise
