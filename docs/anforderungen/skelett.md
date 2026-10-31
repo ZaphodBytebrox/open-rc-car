@@ -17,7 +17,7 @@ Ein parametrisches Grundgerüst des ganzen Fahrzeugs in Fusion: Fahrzeugparamete
 |---|---|---|
 | Gesamtfahrzeug (`fahrzeug.md`) | mechanisch | MECH-FZG-001 (Parameter `radstand`, `spurbreite`), MECH-FZG-002 (4WD-Bauraum kollisionsfrei), MECH-FZG-003 (Bauraum 256 × 256 × 256 mm), MECH-FZG-005 (Federweg wie TT-02B), MECH-FZG-006 (Bodenfreiheit 25 mm) |
 | Zukaufteile v1 (`zukaufteile-v1.md` Fassung 2, `bom/stueckliste.csv`) | mechanisch | Maße der Bausatz- und Zukaufteile; Abschnitt „Vorgaben für die Konstruktion“ (Spur 217/208 mm, Radstand 266 mm, Räder 32 × 82 / 41 × 82 mm, Hauptzahnrad 70Z Modul 0,6, Ritzel bis 25Z (Achsabstand bis 28,5 mm), eigene Rutschkupplung; Layout laut Bauanleitung TT-02B 11053619) |
-| Grundplatte und Oberdeck (PR #6, `open-rc-car-grundplatte`) | mechanisch | Leitet Parameter, Bezugsebenen und Hüllkörper per Ableiten aus diesem Design ab. Wird nach dem Merge dieser Fassung neu aufgebaut. |
+| Grundplatte und Oberdeck (PR #6, `open-rc-car-grundplatte`) | mechanisch | Leitet Parameter, Bezugsebenen und Hüllkörper per Ableiten aus diesem Design ab. Auf dieser Fassung neu aufgebaut (Grundplatte Fassung 2, PR #6, 2026-10-31). |
 | Achsen, Mittelantrieb, Lenkung, Elektronikhalter (spätere Anforderungen) | mechanisch | Werden auf das Skelett referenziert (Parameter und Bezugsebenen). |
 
 ## Koordinatensystem
