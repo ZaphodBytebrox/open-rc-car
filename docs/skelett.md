@@ -1,8 +1,8 @@
 # Skelettmodell des Fahrzeugs
 
 - **Anforderungen:** `docs/anforderungen/skelett.md` (Kürzel SKE, Fassung 2)
-- **Fusion:** Projekt „open-rc-car“, Design „open-rc-car-skelett“, **Version 10** (Fassung 2; v7 ist der erste Stand der Umstellung, v8 hat korrigierte Parameterkommentare, v9 enthält die Änderungen aus Review 1: Motorhalter, Bilanz auf E2; v10 die aus Review 2: `rk_luft` mit vorderem Lager und Mitnehmer, Kommentare). **v11 und v12** entstanden nur für den Parametertest der Grundplatte (PR #6, Nutzerentscheidung 2026-10-31): v11 mit `radstand` 280 mm, v12 wieder 266 mm; Maße und Geometrie von v12 sind gleich v10.
-- **Exporte:** `cad/fusion/skelett.f3d`, `cad/step/skelett.step` (beide aus Version 10); aus v12 nicht neu erzeugt, weil sich die Geometrie nicht geändert hat
+- **Fusion:** Projekt „open-rc-car“, Design „open-rc-car-skelett“, **Version 10** (Fassung 2; v7 ist der erste Stand der Umstellung, v8 hat korrigierte Parameterkommentare, v9 enthält die Änderungen aus Review 1: Motorhalter, Bilanz auf E2; v10 die aus Review 2: `rk_luft` mit vorderem Lager und Mitnehmer, Kommentare). **v11 und v12** entstanden nur für den Parametertest der Grundplatte (PR #6, Nutzerentscheidung 2026-10-31): v11 mit `radstand` 280 mm, v12 wieder 266 mm; Maße und Geometrie von v12 sind gleich v10. **v13 und v14** entstanden ebenso nur für den Parametertest der Hinterachse (Nutzerentscheidung 2026-11-01): v13 mit `radstand` 280 mm, v14 wieder 266 mm; v14 ist maßgleich mit v12 und v10.
+- **Exporte:** `cad/fusion/skelett.f3d`, `cad/step/skelett.step` (beide aus Version 10); aus v12 und v14 nicht neu erzeugt, weil sich die Geometrie nicht geändert hat
 - **Stand:** 2026-10-31
 
 Das Skelett ist kein Bauteil. Es ist die Bezugsgeometrie für Grundplatte, Achsen, Mittelantrieb, Lenkung und Elektronikhalter: Fahrzeugparameter, Radpositionen mit Bewegungsraum, Hüllkörper aller räumlich relevanten Bausatz- und Zukaufteile und Bauraum für den späteren 4WD-Antrieb.
