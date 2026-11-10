@@ -55,6 +55,11 @@ Die gelenkte, in v1 nicht angetriebene Vorderachse des 2WD-Prototyps: Frontschot
 - 2026-11-08: **Servo-Saver als Eigenbau gedruckt** (statt Bausatz-Saver), mit zugekaufter Feder und einstellbarer Vorspannung.
 - 2026-11-08: **Ackermann fest, ca. 100 %**, Wert als Parameter.
 - 2026-11-08: Anforderungsdokument vom Nutzer freigegeben, mit Speichern und Export in Fusion.
+- 2026-11-08 (Rückfragen aus Umsetzung Durchlauf 1):
+  - **Radstand-Test (MECH-VAC-001):** Das Skelett darf als v15 (`radstand` 280 mm) und v16 (wieder 266 mm, maßgleich mit v14) gespeichert werden, wie bei der Hinterachse.
+  - **Servohalter (MECH-VAC-011):** Die Überschneidung der vorderen Servolasche und ihrer Auflage mit der Hülle des Vorderachsgetriebes und die Berührung Servohalter ↔ UBEC-Hülle (ca. 12 mm³, zum echten UBEC ca. 1,3 mm) sind **gewollt**. Vorgabe an das spätere Vorderachsgetriebe (4WD) und an den Elektronikhalter, diese Stellen freizuhalten.
+  - **Lenkeinschlag (MECH-VAC-007):** Die Berührung Kugelpfanne der rechten Spurstange ↔ vordere Servolasche (eingefedert, voller Rechtseinschlag) wird **behoben**. Die Überschneidung des Lenkgestänges mit dem Akku-Entnahmeweg bei vollem Einschlag ist **gewollt**: Der Akku wird in Geradeausstellung entnommen (in der Doku vermerken).
+  - **Bodenfreiheit (MECH-VAC-021):** Flacherer Schraubenkopf bzw. kürzerer Einsatz an der unteren Kingpin-Schraube, Ziel Z ≥ 20; eine Restabweichung unter 0,5 mm wird dokumentiert.
 
 ## Annahmen (abgeleitet, noch nicht bestätigt)
 - Konstruiert wird wie bei Hinterachse und Mittelantrieb **mit vorläufigen Maßen** aus der Bauanleitung; alle kritischen Maße sind Parameter, gemessen wird nach Lieferung.
