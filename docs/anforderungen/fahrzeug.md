@@ -54,4 +54,4 @@ Ein offenes 1:10-Allround-Buggy. Version 1 nutzt eine zugekaufte Antriebs- und F
 - [ ] Spenderplattform für Differential, Dämpfer, Antriebswellen und Zahnräder
 - [ ] Zielgeschwindigkeit und Budget
 - [ ] Konkretes Modell für ELRS-Empfänger (mit PWM) und Sender
-- [ ] Karosserie
+- [x] Karosserie: Neo Scorcher aus dem Bausatz 58568 (Entscheidung 2026-11-10, `docs/anforderungen/karosseriehalter-rammschutz.md`)
