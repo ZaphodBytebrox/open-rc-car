@@ -407,8 +407,8 @@ Getriebegehäuse und Lagerbock werden erst nach dem Messen gedruckt und dann üb
   - Der Querlenkerbock rechts vorne hält 1,00 mm zur Hülle der Zahnradabdeckung. Die Abdeckung darf dort (Y −43…−27, unter Z 48) nicht hinter X −109 reichen.
   - Die Becheröffnung E2 bleibt bei X −84 (`kardan_spiel` = 0).
 - **Karosseriehalter und Rammschutz:**
-  - Hinter dem Getriebe sitzen die Dämpferbrücke (X −162,5…−156,5, Y ±58,7, Z 31…109) und die Dämpfer (X −176…−156, |Y| 44…77, Z 26…109; sie ragen hinten 4 mm über die Grundplatte hinaus).
-  - Die Lochbilder Rammschutz (−164,5 / ±8) und Karosseriehalter (−164,5 / ±22) liegen 2 mm hinter der Brücke. Halter dort dürfen die Brücke nicht berühren und müssen neben den Dämpfern bleiben.
+  - Hinter dem Getriebe sitzen die Dämpferbrücke (X −162,5…−156,5, Y ±58,7, Z 31…109) und die Dämpfer (X −176…−156, |Y| 44…77, Z 26…109). Seit Grundplatte v12 (Überstand 20 mm, Plattenende X −177) liegen sie über der Platte; vorher ragten sie 4 mm hinaus.
+  - Die Lochbilder Rammschutz (−169,35 / ±8) und Karosseriehalter (−169,35 / ±22) liegen seit Grundplatte v12 (Entscheidung 2026-11-13) **6,85 mm** hinter der Brücke (vorher −164,5, nur 2 mm). Platz für einen Träger mit Gewindeeinsatz Ø 4 und 1,2 mm Wand mit 3,65 mm Luft zur Brücke. Halter dort dürfen die Brücke nicht berühren und müssen neben den Dämpfern bleiben. Die Prüfung der verlängerten Platte gegen diese Baugruppe (3 Stellungen) steht in `docs/grundplatte-oberdeck.md`: Dämpfer ≥ 10,12 mm, Räder ≥ 33,90 mm.
 - **Vorderachse:** gleiche Bauart möglich (Böcke, Gabel, Radträger mit Kugelkopf). Das Getriebe lässt sich spiegeln, siehe oben.
 
 ## Parameterliste (neue Benutzerparameter)
