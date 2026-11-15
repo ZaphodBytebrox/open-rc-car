@@ -1,9 +1,9 @@
 # Grundplatte und Oberdeck
 
 - **Anforderungen:** `docs/anforderungen/grundplatte-oberdeck.md` (Kürzel CHA, Fassung 2)
-- **Fusion:** Projekt „open-rc-car“, Design „open-rc-car-grundplatte“, **Version 11**, abgeleitet von „open-rc-car-skelett“ **v12** (Fassung 2, Tamiya TT-02B; v12 ist maßgleich mit v10, siehe [Parametertest](#parametertest-mech-cha-001)). Version 8 ist ein Zwischenstand des Neuaufbaus, Version 9 der Stand vor Review 1, Version 10 der Stand nach Review 1 (ohne Fügespiel).
-- **Exporte (alle aus Version 11):** `cad/fusion/chassis-grundplatte-oberdeck.f3d`, `cad/step/chassis-grundplatte-oberdeck.step` (8 Druckkörper), `cad/step/chassis-grundplatte-alu.step` (1 Körper), 8 STL in `print/stl/`
-- **Stand:** 2026-10-31
+- **Fusion:** Projekt „open-rc-car“, Design „open-rc-car-grundplatte“, **Version 12**, abgeleitet von „open-rc-car-skelett“ **v12** (Fassung 2, Tamiya TT-02B; v12 ist maßgleich mit v10, siehe [Parametertest](#parametertest-mech-cha-001)). Version 8 ist ein Zwischenstand des Neuaufbaus, Version 9 der Stand vor Review 1, Version 10 der Stand nach Review 1 (ohne Fügespiel), Version 11 der Stand mit Fügespiel (Überstand 15 mm). Version 12: Überstand 20 mm und Lochreihe Rammschutz/Karosseriehalter verlegt (Änderung 2026-11-13, siehe [Lochreihe](#lochreihe-rammschutz-und-karosseriehalter-änderung-2026-11-13)).
+- **Exporte (alle aus Version 12):** `cad/fusion/chassis-grundplatte-oberdeck.f3d`, `cad/step/chassis-grundplatte-oberdeck.step` (8 Druckkörper), `cad/step/chassis-grundplatte-alu.step` (1 Körper), 8 STL in `print/stl/`
+- **Stand:** 2026-11-13
 
 Die Grundplatte trägt alle Baugruppen und legt deren **Lochbilder** fest (Schnittstellenblatt unten). Für den Druck ist sie zweiteilig mit Stoß in der Fahrzeugmitte, für die spätere Alufräsung einteilig. Das Oberdeck läuft mittig längs über der Kardanwelle und liegt auf beiden Achsgetrieben und auf einer neuen **Mittelstütze** auf. Vier Anschläge legen den Akku fest. Vorne und hinten ist die Platte über die Getriebe hinaus verlängert (Rammschutz, Karosseriehalter). Neben den Getrieben sind die Fußflächen der **Querlenkerböcke** reserviert, neben dem Servo die der **Lagerböcke des Lenkhebelsystems**.
 
@@ -21,25 +21,27 @@ Die Grundplatte trägt alle Baugruppen und legt deren **Lochbilder** fest (Schni
 
 ![Mit Skelett](images/grundplatte-skelett-iso.png)
 
-*Mit den Hüllkörpern des Skeletts (ohne Räder, Radräume und Akku-Entnahmeweg), Version 11. Magenta: reservierte Fußflächen, vorne rechts der Lenkhebel-Lagerbock in der Lage nach Review 1 (`lk_x_rechts`, 2 mm vor der Dämpfer-Hülle).*
+*Mit den Hüllkörpern des Skeletts (ohne Räder, Radräume und Akku-Entnahmeweg), Version 12. Magenta: reservierte Fußflächen, vorne rechts der Lenkhebel-Lagerbock in der Lage nach Review 1 (`lk_x_rechts`, 2 mm vor der Dämpfer-Hülle).*
 
 ## Ergebnis
 
 | Teil | Komponente / Körper | Hüllquader X × Y × Z (mm) | Masse PETG, 100 % | Datei |
 |---|---|---|---|---|
-| Grundplatte hinten (Druck) | `chassis-grundplatte` / `grundplatte-hinten` | 186,8 × 144,0 × 4,0 (X −172…14,8) | 97,0 g | `print/stl/chassis-grundplatte-hinten.stl` |
-| Grundplatte vorne (Druck) | `chassis-grundplatte` / `grundplatte-vorne` | 186,8 × 144,0 × 4,0 (X −14,8…172) | 96,6 g | `print/stl/chassis-grundplatte-vorne.stl` |
-| Grundplatte Alu (einteilig) | `chassis-grundplatte` / `grundplatte-alu` | 344,0 × 144,0 × 4,0 | 412,0 g in Alu 6061 | `cad/step/chassis-grundplatte-alu.step` |
+| Grundplatte hinten (Druck) | `chassis-grundplatte` / `grundplatte-hinten` | 191,8 × 144,0 × 4,0 (X −177…14,8) | 99,4 g | `print/stl/chassis-grundplatte-hinten.stl` |
+| Grundplatte vorne (Druck) | `chassis-grundplatte` / `grundplatte-vorne` | 191,8 × 144,0 × 4,0 (X −14,8…177) | 98,9 g | `print/stl/chassis-grundplatte-vorne.stl` |
+| Grundplatte Alu (einteilig) | `chassis-grundplatte` / `grundplatte-alu` | 354,0 × 144,0 × 4,0 | 421,9 g in Alu 6061 | `cad/step/chassis-grundplatte-alu.step` |
 | Oberdeck | `chassis-oberdeck` / `oberdeck` | 244,0 × 41,0 × 3,0 | 20,7 g | `print/stl/chassis-oberdeck.stl` |
 | Mittelstütze | `chassis-mittelstuetze` / `mittelstuetze` | 30,0 × 20,0 × 55,2 | 17,6 g | `print/stl/chassis-mittelstuetze.stl` |
 | Akkuanschlag links | `chassis-akkuanschlag-links` | 60 × 8 × 10 | 5,7 g | `print/stl/chassis-akkuanschlag-links.stl` |
 | Akkuanschlag rechts | `chassis-akkuanschlag-rechts` | 60 × 8 × 10 | 5,7 g | `print/stl/chassis-akkuanschlag-rechts.stl` |
 | Akkuanschlag vorne (Platzhalter Bügelpfosten) | `chassis-akkuanschlag-vorne` | 8 × 20 × 10 | 1,8 g | `print/stl/chassis-akkuanschlag-vorne.stl` |
 | Akkuanschlag hinten | `chassis-akkuanschlag-hinten` | 8 × 20 × 10 | 1,8 g | `print/stl/chassis-akkuanschlag-hinten.stl` |
-| **Summe Druck** | | | **247,0 g** (≤ 250 g) | |
+| **Summe Druck** | | | **251,6 g** (Soll ≤ 255 g, angehoben 2026-11-13) | |
 | Reservierte Fußflächen (kein Bauteil) | `chassis-fussflaechen` (10 Quader) | siehe Schnittstellenblatt | – | nur im f3d |
 
-Masse = Volumen aus Fusion × 1,27 g/cm³ (PETG). Das ist eine obere Grenze, weil mit 100 % Füllung gerechnet ist. In Prusament PC (ca. 1,20 g/cm³) sind es 233,4 g. Ohne die vier Erleichterungstaschen (MECH-CHA-019) wären es rund 254 g: **Die Taschen sind für MECH-CHA-017 nötig** und dürfen nicht entfallen. Die Reserve bis 250 g ist mit 3,0 g klein; jedes zusätzliche Material (z. B. ein breiteres Oberdeck) muss an anderer Stelle eingespart werden.
+Masse = Volumen aus Fusion × 1,27 g/cm³ (PETG). Das ist eine obere Grenze, weil mit 100 % Füllung gerechnet ist. In Prusament PC (ca. 1,20 g/cm³) sind es 237,8 g. Ohne die vier Erleichterungstaschen (MECH-CHA-019) wären es rund 258 g: **Die Taschen bleiben nötig.**
+
+**MECH-CHA-017 (SOLL):** Die 2 × 5 mm längeren Plattenenden (je 5 × 92 × 4 mm) wiegen zusammen 4,7 g (vorher 247,0 g). Damit wäre das alte Soll ≤ 250 g um 1,6 g überschritten; nach Nutzerentscheidung 2026-11-13 gilt ≤ 255 g.
 
 ## Aufbau in Fusion
 
@@ -58,16 +60,17 @@ Der Umriss ist achsparallel mit Radius `gp_kantenradius` = 2 mm an allen senkrec
 
 | Bereich | X (mm) | Y (mm) | Parameter |
 |---|---|---|---|
-| Ende hinten mit Verlängerung, Hinterachse | −172 … −90 | ±46 | `platte_x_hinten − gp_ueberstand`, `gp_mitte_hinten_x`, `gp_achse_y` |
+| Ende hinten mit Verlängerung, Hinterachse | −177 … −90 | ±46 | `platte_x_hinten − gp_ueberstand`, `gp_mitte_hinten_x`, `gp_achse_y` |
 | Mitte links (Akkuschacht verbreitert) | −90 … 82 | bis 70 | `gp_links_breit` = `platte_links + gp_zugabe_links`, `gp_links_vorne_x` |
 | Mitte rechts (Elektronik) | −90 … 85 | bis −74 | `platte_rechts`, `gp_rechts_vorne_x` |
 | Absatz rechts (Lenkhebel-Lagerbock rechts) | 85 … 99,75 | bis −62 | `gp_rechts_lk`, `gp_lk_ende_x` (an `lk_x_rechts`) |
-| Vorderachse und Ende vorne mit Verlängerung | 82 bzw. 99,75 … 172 | ±46 | `gp_ende_x` = `platte_x_vorne + gp_ueberstand` |
+| Vorderachse und Ende vorne mit Verlängerung | 82 bzw. 99,75 … 177 | ±46 | `gp_ende_x` = `platte_x_vorne + gp_ueberstand` |
 
-- **Verlängerung:** `gp_ueberstand` = 15 mm vorne und hinten über die Getriebe-Hüllen (X ±157) hinaus. Gemessen: Hüllquader **344,00 × 144,00 × 4,00 mm** = 314 + 2 × 15 mm lang, Unterkante Z 25,00 mm.
+- **Verlängerung:** `gp_ueberstand` = **20 mm** (Nutzerentscheidung 2026-11-13, vorher 15 mm) vorne und hinten über die Getriebe-Hüllen (X ±157) hinaus. Gemessen: Hüllquader **354,00 × 144,00 × 4,00 mm** = 314 + 2 × 20 mm lang, Unterkante Z 25,00 mm.
 - **Querlenkerböcke:** Die Plattenenden sind ±46 mm breit (Fußflächen bis ±43 mm + `gp_fuss_rand` 3 mm), statt ±24,9 mm wie die Getriebe-Hülle im Skelett.
 - **Akkuschacht:** links bis Y 70 mm (Akku bis 58 + 1 mm Spiel + 8 mm Anschlag + 3 mm Rand), von X −90 bis 82 mm. Die Kante springt vor dem vorderen Anschlag auf ±46 zurück, damit die Platte den Lenk-Bewegungsraum vorne links nicht erreicht. Rechts endet die volle Breite (Y −74) bei X 85 mm vor dem UBEC; der Skelett-Umriss reichte dort bis X 89,5 mm und hielt nur 3,92 mm Abstand zum Radraum vorne rechts.
-- **Abstand zu den Bewegungsräumen** (alle drei Körper, `measureMinimumDistance`): Radräume min. **8,55 mm** (vorne rechts; Soll ≥ 5), Wellenräume min. **11,15 mm** (vorne; Soll ≥ 3). 0 Überschneidungen.
+- **Abstand zu den Bewegungsräumen** (alle drei Körper, `measureMinimumDistance`, Version 12): Radräume min. **8,55 mm** (vorne rechts, am Absatz bei X 85; Soll ≥ 5), Radraum hinten rechts 10,18 mm, Wellenräume min. **11,15 mm** (vorne; Soll ≥ 3). 0 Überschneidungen. Die Radräume des Skeletts enthalten vorne den Lenkeinschlag ±30°.
+- **Verlängerung gegen die echten Achsen** (Version 12, Prüfkörper X ±172…±177, Y ±46, Z 25…29 in den Designs der Achsen, ohne Speichern): Vorderachse v8 in allen 9 Stellungen (ausgefedert/Konstruktionslage/eingefedert × voll links/geradeaus/voll rechts): Räder min. **26,13 mm**, Dämpfer 4,60 mm (ausgefedert), Querlenker 6,05 mm, Dämpferbrücke 9,71 mm. Hinterachse v14 in 3 Stellungen: Räder min. **33,90 mm**, Dämpferbrücke 9,71 mm, Dämpfer 10,12 mm, Querlenker 18,50 mm. 0 Überschneidungen.
 
 ## Stoß (MECH-CHA-003)
 
@@ -86,7 +89,7 @@ Der Umriss ist achsparallel mit Radius `gp_kantenradius` = 2 mm an allen senkrec
   ![Stoß von rechts mit Fügespiel](images/grundplatte-stoss-spiel.png)
 
   *Stoß von rechts (X nach rechts, Z nach oben), Ausschnitt X ≈ −19…19: blau hinterer Teil mit unterer Zunge, orange vorderer Teil mit oberer Zunge, links und rechts je 0,2 mm Spalt an den Stufen.*
-- Druckteile mit Überlappung: je **186,8 × 144,0 mm** (≤ 250 × 250).
+- Druckteile mit Überlappung: je **191,8 × 144,0 mm** (≤ 250 × 250).
 - Schraubenenden: Platte 4 mm + 4 mm im Einsatz, Ende bei Z 33 mm im Sackloch (Ø 4 × 6 mm, bis Z 35). Interferenz der Anschläge und der Mittelstütze mit allen Skelett-Körpern: 0.
 
 ## Befestigung an der Grundplatte (MECH-CHA-008)
@@ -97,7 +100,7 @@ Der Umriss ist achsparallel mit Radius `gp_kantenradius` = 2 mm an allen senkrec
 - **Prüfskript** (Flächen der Körper ausgewertet):
   - `grundplatte-alu`: **107 Bohrungen** Ø 3,2 mm, 107 Kegel mit Halbwinkel 45,0°, Ø 6,9 mm an der Unterseite, Z 25,00…26,85, Achse senkrecht. Keine Bohrung ohne Senkung.
   - `grundplatte-hinten` 58, `grundplatte-vorne` 64 Bohrungen, vereint 107 = Alu; 15 davon in beiden Druckteilen (Stoß). Kegel: hinten 58, vorne 49, also jede Senkung genau einmal, im Stoß in der unteren Lage.
-  - Randabstand Lochmitte ↔ Umriss und Taschen min. **5,00 mm** (Raster am rechten Rand). Lochmitte ↔ Stoßstufe in den Druckteilen min. **4,80 mm** (Löcher X ±10 ↔ Zungenenden X ±14,8, Ausnahme MECH-CHA-008, Soll ≥ 4,8), Löcher X ±20 ↔ Stufen X ±15 5,00 mm. Wand Senkung ↔ Zungenende **1,35 mm** (Soll ≥ 1,2). Gerechnet in der Ebene über alle Kanten der Ober- und Unterseiten und der Stufenflächen (Version 11).
+  - Randabstand Lochmitte ↔ Umriss und Taschen min. **5,00 mm** (Raster am rechten Rand); Lochreihe Rammschutz/Karosseriehalter ↔ Plattenende 7,65 mm (Version 12). Lochmitte ↔ Stoßstufe in den Druckteilen min. **4,80 mm** (Löcher X ±10 ↔ Zungenenden X ±14,8, Ausnahme MECH-CHA-008, Soll ≥ 4,8), Löcher X ±20 ↔ Stufen X ±15 5,00 mm. Wand Senkung ↔ Zungenende **1,35 mm** (Soll ≥ 1,2). Gerechnet in der Ebene über alle Kanten der Ober- und Unterseiten und der Stufenflächen (Version 11).
   - Lochabstand Mitte–Mitte min. **8,56 mm** (Motorhalter (−71 / −40,5) ↔ Raster (−70 / −49)), Soll ≥ 8 mm.
 
 ## Schnittstellenblatt: Lochbilder (MECH-CHA-007)
@@ -116,8 +119,8 @@ Koordinaten im Fahrzeugsystem des Skeletts: X längs nach vorne, Y quer nach lin
 | Lagerbock Lenkhebel rechts | 2 × M3 | (92,75 / −46,5; −55,5) | `lk_x_rechts`; `-(lk_y_rechts ∓ gp_paar_d / 2)` |
 | Servohalter | 4 × M3 | (53,2 / −27,1); (53,2 / −17,1); (85,0 / −37,2); (95,0 / −37,2) | `gp_sh_x_hinten`, `gp_sh_x_vorne - gp_sh_dx`, `gp_sh_x_vorne`; `servo_y ∓ gp_sh_dy`, `gp_sh_y_aussen` |
 | Motorhalter (trägt die Zahnradabdeckung) | 3 × M3 | (−71 / −40,5; −28,5; −16,5) | `gp_mh_x`; `motor_y`, `motor_y ± gp_mh_dy` |
-| Rammschutz hinten / vorne | je 2 × M3 | (−164,5 / ±8); (164,5 / ±8) | `platte_x_hinten - gp_ueberstand / 2`, `gp_ende_loch_x`; `±gp_ramm_y` |
-| Karosseriehalter hinten / vorne | je 2 × M3 | (−164,5 / ±22); (164,5 / ±22) | wie Rammschutz; `±gp_karo_y` |
+| Rammschutz hinten / vorne | je 2 × M3 | (−169,35 / ±8); (169,35 / ±8) | `∓gp_ende_loch_x`; `±gp_ramm_y` |
+| Karosseriehalter hinten / vorne | je 2 × M3 | (−169,35 / ±22); (169,35 / ±22) | wie Rammschutz; `±gp_karo_y` |
 | Akkuanschlag links | 3 × M3 | (−20; 0; 20 / 63), mittleres im Stoß | `akku_anschlag_x ± akku_anschlag_dx`; `akku_anschlag_links_y` |
 | Akkuanschlag rechts | 3 × M3 | (−20; 0; 20 / 7), mittleres im Stoß | wie links; `akku_anschlag_rechts_y` |
 | Akkuanschlag vorne = Akkubügel-Pfosten vorne | 2 × M3 | (74 / 54; 63) | `akku_anschlag_vorne_x`; `akku_anschlag_vorne_y ∓ akku_anschlag_vh_dy` |
@@ -126,6 +129,22 @@ Koordinaten im Fahrzeugsystem des Skeletts: X längs nach vorne, Y quer nach lin
 | Mittelstütze | 4 × M3 | (−10 / −16; −26); (10 / −16; −26), alle im Stoß | `ms_x ∓ ms_loch_dx`; `ms_y_mitte ∓ ms_loch_dy` |
 | Elektronik-Raster | 48 × M3 | X −70…80 (16 Spalten), Y −69 / −59 / −49, Teilung 10 | `raster_x0`, `raster_nx` (abgeleitet aus `gp_rechts_vorne_x`), `raster_y0`, `raster_ny`, `raster_teilung` |
 | **Summe** | **107** | | |
+
+### Lochreihe Rammschutz und Karosseriehalter (Änderung 2026-11-13)
+
+Die Umsetzung „Karosseriehalter und Rammschutz“ hat gemessen, dass die Lochachsen bei X ±164,5 nur 2,0 mm vor bzw. hinter den Dämpferbrücken liegen (Außenseite X ±162,5; vorne reicht das Mittelteil der Brücke bis Y ±22,36, hinten bis ±58,7). Ein Träger braucht um die Lochachse einen Gewindeeinsatz Ø 4 mm mit 1,2 mm Wand und 1 mm Luft zur Brücke, also **≥ 4,2 mm**. Nutzerentscheidung 2026-11-13: Überstand 20 mm und Lochreihe nach außen verlegen.
+
+| Grenze | X (mm) | Parameter |
+|---|---|---|
+| Außenseite Dämpferbrücke | ±162,50 | `gp_db_x` (Kopie aus Vorder- und Hinterachse) |
+| frühestens (Brücke + 4,2 mm) | ±166,70 | `gp_db_x + gp_ende_db_abstand` |
+| **Lochreihe** | **±169,35** | `gp_ende_loch_x` |
+| spätestens (Plattenende − 5 mm) | ±172,00 | `gp_ende_x − gp_rand` |
+| Plattenende | ±177,00 | `gp_ende_x` |
+
+- **Wahl der Lage:** genau in der Mitte des erlaubten Bereichs. Beide Grenzen haben dann dieselbe Reserve von **2,65 mm** (`gp_ende_loch_reserve`). Damit bleibt die Lochreihe gültig, wenn der Gewindeeinsatz nach dem Messen dicker ausfällt (`akku_einsatz_d` geht direkt in `gp_ende_db_abstand` ein) oder eine Dämpferbrücke dicker wird. Ein Träger um den Einsatz (Ø 4 + 2 × 1,2 = 6,4 mm) reicht von X ±166,15 bis ±172,55: 3,65 mm Luft zur Brücke, 4,45 mm bis zum Plattenende. Verworfen wurde, die Lochreihe so weit wie möglich nach außen zu legen (X ±172, Randabstand genau 5 mm). Das gäbe mehr Platz zur Brücke, aber keine Reserve am Rand. Ebenfalls verworfen: die Mitte zwischen Brücke + 1 mm und Plattenende (X ±170,25), weil sie nur 1,75 mm Reserve zum Randabstand lässt.
+- **Gemessen in Fusion** (Version 12; Lochachse als Linie Z 25…120 gegen den Brückenkörper, in den Designs „open-rc-car-vorderachse“ v8 und „open-rc-car-hinterachse“ v14, ohne Speichern): alle 8 Lochachsen **6,85 mm** von der Brücke (Soll ≥ 4,2). Randabstand Lochmitte ↔ Plattenende **7,65 mm** (Soll ≥ 5), Lochabstand ±8 ↔ ±22 14 mm.
+- **Folgt dem Skelett:** `gp_db_x` hängt wie beide Brücken an `achse_x`, `gp_ende_x` an `platte_x_vorne`. Bei einer Radstandänderung wandern Brücke, Plattenende und Lochreihe gemeinsam.
 
 ### Reservierte Fußflächen (MECH-CHA-020, MECH-CHA-022)
 
@@ -201,20 +220,20 @@ Befestigungspunkt ist das **Lochbild Motorhalter** (3 × M3): Die Zahnradabdecku
 
 - **Aluvariante:** Körper `grundplatte-alu`, einteilig, aus derselben Umrissskizze und denselben Bohr-, Senk-, Raster- und Taschen-Features. Prüfskript: 107 Lochpositionen Alu = 107 Lochpositionen Druck (vereint), identisch. Reine Stoßbohrungen gibt es in Fassung 2 nicht. STEP `cad/step/chassis-grundplatte-alu.step` mit genau einem Körper (`MANIFOLD_SOLID_BREP('grundplatte-alu')`).
 - **Prüfskript 2,5D** (Alu, beide Druckteile, Oberdeck): nur Ebenen parallel oder senkrecht zur Plattenebene, nur senkrechte Zylinder, Kegel nur an den Senkungen (Halbwinkel 45°, Achse senkrecht, alle an der Unterseite), keine anderen Flächentypen. Radien: Bohrungen 1,6, Umriss und Taschen 2,0, Oberdeck 3,0 und 5,0 mm (alle ≥ 1,5). Keine Hinterschnitte.
-- **CAM über die API:** Setup „grundplatte-alu von unten“ (WCS Z gespiegelt, Rohteil +3 mm seitlich, +1 mm oben), Operation „Kontur aussen Fraeser 3 mm“ (2D-Kontur, Schaftfräser Ø 3 mm, Flächenkontur der Unterseite, nur Außenkontur). Werkzeugweg **ohne Fehler und ohne Warnung** berechnet. Die Bohroperation der Fassung 1 (Post gab nur 1 von 105 Bohrungen aus) ist entfernt.
+- **CAM über die API** (Version 12: Modell und Konturauswahl gingen durch die längere Platte verloren und sind neu zugewiesen; Werkzeugweg danach ohne Fehler und Warnung): Setup „grundplatte-alu von unten“ (WCS Z gespiegelt, Rohteil +3 mm seitlich, +1 mm oben), Operation „Kontur aussen Fraeser 3 mm“ (2D-Kontur, Schaftfräser Ø 3 mm, Flächenkontur der Unterseite, nur Außenkontur). Werkzeugweg **ohne Fehler und ohne Warnung** berechnet. Die Bohroperation der Fassung 1 (Post gab nur 1 von 105 Bohrungen aus) ist entfernt.
 - **⏳ Phase 3** (Entscheidungen 2026-10-28): Bohr-NC für 107 Bohrungen, Senk-Operation (90°-Senker oder Fasenfräser ≥ Ø 7 mm), Taschen-Operation für die 4 Erleichterungstaschen und Fräs-Simulation mit Kollisionsprüfung (in der API nicht verfügbar). Lösungsansatz aus Fassung 1 für das Bohren: Löcher über ihre Mittelpunkte auswählen oder ein Setup von oben anlegen.
 
 ## Druckhinweise (MECH-CHA-013)
 
 | Teil | Lage auf dem Bett | Größe auf dem Bett | Stützen | Hinweis |
 |---|---|---|---|---|
-| Grundplatte hinten | Unterseite (Z 25) auf dem Bett | 186,8 × 144 mm | keine | Senkungen öffnen sich zum Bett, Kegelwand 45°. Die Stufe im Stoß zeigt nach oben. |
-| Grundplatte vorne | **kopfüber**, Oberseite (Z 29) auf dem Bett | 186,8 × 144 mm | keine | Nur so liegt die obere Lage im Stoß auf dem Bett. STL liegt in Fahrzeuglage: im Slicer um 180° um X oder Y drehen. |
+| Grundplatte hinten | Unterseite (Z 25) auf dem Bett | 191,8 × 144 mm | keine | Senkungen öffnen sich zum Bett, Kegelwand 45°. Die Stufe im Stoß zeigt nach oben. |
+| Grundplatte vorne | **kopfüber**, Oberseite (Z 29) auf dem Bett | 191,8 × 144 mm | keine | Nur so liegt die obere Lage im Stoß auf dem Bett. STL liegt in Fahrzeuglage: im Slicer um 180° um X oder Y drehen. |
 | Oberdeck | flach | 244 × 41 mm | keine | |
 | Mittelstütze | auf einer Seitenfläche (Y-Fläche) | 30 × 55,2 mm, 20 hoch | keine | Profil liegt flach, die 6 Einsatzlöcher Ø 4 × 6 mm liegen waagerecht und werden überbrückt (Scheitel hängt leicht durch). Nach dem Druck die Löcher prüfen und bei Bedarf mit 4-mm-Bohrer nachziehen, Einsätze gerade einsetzen. Eine Tropfenform der Löcher ist nicht umgesetzt (Review 1, Hinweis). STL im Slicer um 90° um X drehen. |
 | Akkuanschläge | Auflagefläche auf dem Bett | | keine | Sacklöcher Ø 4 mm offen zum Bett. Einsätze von unten einschmelzen und danach die Planlage prüfen. |
 
-- Druckbett 256 × 256 mm: Das längste Teil ist das Oberdeck mit 244 mm, die Plattenhälften haben 186,8 × 144 mm. Geprüft an den STL-Dateien (Hüllquader wie in der Tabelle [Ergebnis](#ergebnis)). Ein Slicer ist auf diesem Rechner nicht installiert; die Slicer-Prüfung (im Bauraum, keine Stützen) macht der Nutzer bei der Probemontage.
+- Druckbett 256 × 256 mm: Das längste Teil ist das Oberdeck mit 244 mm, die Plattenhälften haben 191,8 × 144 mm. Geprüft an den STL-Dateien (Hüllquader wie in der Tabelle [Ergebnis](#ergebnis)). Ein Slicer ist auf diesem Rechner nicht installiert; die Slicer-Prüfung (im Bauraum, keine Stützen) macht der Nutzer bei der Probemontage.
 - **Wandstärken** (Soll ≥ 1,2 mm):
   - Senkung ↔ Zungenende am Stoß (mit Fügespiel): 4,80 − 3,45 = **1,35 mm**
   - Senkung ↔ Plattenrand, Taschenrand und Stufe: min. 5,00 − 3,45 = **1,55 mm**
@@ -230,11 +249,12 @@ Befestigungspunkt ist das **Lochbild Motorhalter** (3 × M3): Die Zahnradabdecku
 
 ## Interferenz und Abstände
 
-Fusion `analyzeInterference` über alle 19 neuen Körper und alle 38 abgeleiteten Skelett-Körper, ohne bloß berührende Flächen: **0 Überschneidungen** mit einem neuen Körper (zuletzt geprüft mit Version 11, Fügespiel 0,2 mm; die Paare `grundplatte-alu` ↔ `grundplatte-hinten`/`-vorne`, die am selben Ort liegen, meldet Fusion dabei nicht mehr). Kleinste Abstände (`measureMinimumDistance`):
+Fusion `analyzeInterference` über alle 19 neuen Körper und alle 38 abgeleiteten Skelett-Körper, ohne bloß berührende Flächen: **0 Überschneidungen** mit einem neuen Körper (Version 11, Fügespiel 0,2 mm; mit Version 12 für die Grundplatte gegen alle 38 Skelett-Körper wiederholt: 0; die Paare `grundplatte-alu` ↔ `grundplatte-hinten`/`-vorne`, die am selben Ort liegen, meldet Fusion dabei nicht mehr). Kleinste Abstände (`measureMinimumDistance`):
 
 | Prüfung | Überschneidungen | kleinster Abstand |
 |---|---|---|
-| Grundplatte (Alu, hinten, vorne) ↔ Radräume / Wellenräume | 0 | 8,55 mm (Radraum vorne rechts) / 11,15 mm (Wellenraum vorne) |
+| Grundplatte (Alu, hinten, vorne) ↔ Radräume / Wellenräume | 0 | 8,55 mm (Radraum vorne rechts) / 11,15 mm (Wellenraum vorne), Version 12 |
+| Verlängerung (X ±172…±177) ↔ Vorderachse v8 (9 Stellungen mit Lenkeinschlag) / Hinterachse v14 (3 Stellungen) | 0 | Räder 26,13 / 33,90 mm; Dämpfer 4,60 / 10,12 mm |
 | Grundplatte ↔ alle Skelett-Körper | 0 | 0,00 mm (Teile liegen auf der Platte auf) |
 | Oberdeck ↔ alle Skelett-Körper | 0 | 1,00 mm (Zahnradabdeckung) |
 | Mittelstütze ↔ alle Skelett-Körper | 0 | 1,00 mm (Regler) |
@@ -251,7 +271,7 @@ Fusion `analyzeInterference` über alle 19 neuen Körper und alle 38 abgeleitete
 2. Hier Ableitung aktualisiert (`Document.updateAllReferences()`, dann `DeriveFeature.setSourceEntities(…)` und `Design.computeAll()`): `radstand_Ref` 280 mm, Zeitleiste (83 Elemente) **ohne Fehler und Warnungen**.
 3. Geprüft bei 280 mm (Bild unten):
    - Grundplatte 358 × 144 mm (X ±179), Druckteile X −179…15 und −15…179 (je 194 × 144 mm, ≤ 250), Oberdeck X ±129, Mittelstütze und Akkuanschläge unverändert (hängen an `teilung_x` und am Akku, nicht an der Achse).
-   - Lochbilder folgen: Getriebe (∓159 / ∓121), Querlenkerböcke (∓158 / ∓122), Rammschutz und Karosseriehalter (±171,5), Motorhalter (−78), Servohalter (60,2; 92; 102), Lenkhebel rechts (99,75, folgt dem Dämpfer), Lenkhebel links (94,5, folgt dem XT60 und bleibt).
+   - Lochbilder folgen: Getriebe (∓159 / ∓121), Querlenkerböcke (∓158 / ∓122), Rammschutz und Karosseriehalter (±171,5, damals mit Überstand 15 mm), Motorhalter (−78), Servohalter (60,2; 92; 102), Lenkhebel rechts (99,75, folgt dem Dämpfer), Lenkhebel links (94,5, folgt dem XT60 und bleibt).
    - Fußflächen folgen: Querlenkerböcke X ∓163…∓153 und ∓127…∓117, Lenkhebel rechts X 95,75…103,75.
    - Interferenz aller neuen Körper mit allen 38 Skelett-Körpern: **0**. Mindestabstände: Radräume 9,46 mm, Wellenräume 11,15 mm (Platte); Querlenkerbock hinten vor der Achse ↔ Wellenraum **7,39 mm**, ↔ Zahnradabdeckung **1,00 mm** (rechts), ↔ Dämpfer **1,79 mm** (links), also gleich wie bei 266 mm, weil Bock, Wellenraum, Zahnradabdeckung und Dämpfer alle an `achse_x` hängen. Lenkhebel rechts ↔ Dämpfer 2,00 mm, ↔ UBEC 20,25 mm; links ↔ XT60 1,00 mm, ↔ Vorderachsgetriebe 7,80 mm. Oberdeck ↔ Zahnradabdeckung 1,00 mm, Mittelstütze ↔ Regler 1,00 mm.
    - **Befund und Korrektur:** Motor, Regler und UBEC wandern mit der Hinterachse um 7 mm nach hinten; die volle Plattenbreite rechts (`gp_rechts_vorne_x`, vor dem UBEC) endet dann bei X 78. Mit fest 16 Rasterspalten lag die Spalte X 80 außerhalb: Bohrung (80 / −69) ging ins Leere, (80 / −59) hatte nur 3,0 mm Randabstand. `raster_nx` ist jetzt aus dem Umriss abgeleitet (siehe [Elektronik-Raster](#elektronik-raster-mech-cha-009)). Danach bei 280 mm: 104 Bohrungen (15 Spalten), Randabstand min. **5,00 mm**, Lochabstand min. 9,00 mm, Rasterlöcher unter Empfänger 12, Regler 15, UBEC 15.
@@ -260,6 +280,8 @@ Fusion `analyzeInterference` über alle 19 neuen Körper und alle 38 abgeleitete
 ![Parametertest mit radstand 280 mm](images/grundplatte-parametertest-280.png)
 
 *Parametertest bei `radstand` 280 mm, von oben (vorne ist unten). Platte, Oberdeck, Fußflächen (magenta) und Lochbilder folgen den Achsen.*
+
+**Ersatztest der Lochreihe** (Version 12, vor dem Speichern, danach zurückgesetzt): `gp_ueberstand` 25 mm und `akku_einsatz_d` 4,6 mm gleichzeitig → `gp_ende_loch_x` 172,0 mm, Reserve 5,0 mm, Platte 364 × 144 mm, Druckteile 196,8 mm lang, 107 Bohrungen, Randabstand der Lochreihe 10,0 mm, Zeitleiste (85 Elemente) ohne Fehler. Zurück auf 20 / 4,0 mm: wieder 169,35 mm, 354 × 144 mm, ohne Fehler. Der Test mit dem Skelett (`radstand` 280 mm) ist für Version 12 nicht wiederholt, weil sich an den Skelett-Bezügen nichts geändert hat; der neue Parameter `gp_db_x` hängt an `achse_x` wie die Brücken (Hinterachse bei 280 mm: Brücke X −169,5…−163,5).
 
 **Ersatztest mit den eigenen Parametern** (Durchlauf 1, vor Version 9, danach zurückgesetzt): `gp_ueberstand` 12, `ql_dx` 20, `od_getriebe_dx` 15, `raster_nx` 15, `akku_anschlag_l` 50, `gp_getriebe_y` 16, `ms_loch_dy` 4,5 mm gleichzeitig gesetzt: Zeitleiste ohne Fehler, alle Teile und Löcher folgen. (`raster_nx` ist inzwischen abgeleitet.)
 
@@ -304,13 +326,13 @@ Vier durchgehende Taschen an den Achsen zwischen den Querlenkerböcken jeder Sei
   - Adapterplatten auf dem Raster 10 mm (Senkkopf von unten in Gewindeeinsätze der Platten). **Befestigen lassen sie sich nur auf den drei Reihen Y −69 / −59 / −49** (Spalten X −70…80); weiter zur Mitte gibt es kein Raster (Motor, Servohalter, Mittelstütze). Platten, die nach innen über Y −49 hinausreichen, kragen frei aus und müssen das selbst tragen. Adapterplatten im Stoßbereich (X −15…15) dürfen nicht über Y −31 hinaus zur Mitte reichen (Mittelstütze).
   - Die Adapterplatten im Stoßbereich (Spalten X −10 / 0 / 10) klemmen zusätzlich den Stoß.
   - Der vordere Pfosten des Akkubügels ersetzt den vorderen Anschlag (Entscheidung 2026-10-28): Lochbild (74 / 54; 63), Anschlagfläche bei X 70 mm (1 mm Spiel), Kanten zum Akku R ≥ 1 mm. Der hintere Pfosten sitzt auf (−84 / 30,5; 39,5).
-- **Karosseriehalter und Rammschutz:** auf der Verlängerung vorne und hinten, Rammschutz (∓164,5 / ±8), Karosseriehalter (∓164,5 / ±22), je 2 × M3 von unten.
+- **Karosseriehalter und Rammschutz:** auf der Verlängerung vorne und hinten (Plattenende X ±177), Rammschutz (∓169,35 / ±8), Karosseriehalter (∓169,35 / ±22), je 2 × M3 von unten. Die Lochachsen liegen **6,85 mm** vor bzw. hinter den Dämpferbrücken (X ±162,5) und 7,65 mm vor dem Plattenende. Ein Träger mit Gewindeeinsatz Ø 4 + Wand 1,2 mm reicht von X ±166,15 bis ±172,55 und hält 3,65 mm Luft zur Brücke. Dämpfer und Querlenkerlaschen liegen außerhalb Y ±30 (vorne Dämpfer Y ±37…±59 ab Z 36).
 - **Messpunkte bei Lieferung:** Gewindeeinsätze MP-JET M3 kurz (Bohrung, Länge) für Anschläge und Mittelstütze.
 - **Phase 3:** Bohr-NC, Senk- und Taschen-Operation, CAM-Simulation der Aluvariante (siehe [Fräsbarkeit](#fräsbarkeit-mech-cha-004-mech-cha-005)).
 
 ## Parameterliste (neue Benutzerparameter)
 
-Alle Skelett-Parameter sind abgeleitet (siehe `docs/skelett.md`). Neu in diesem Design sind 95 Benutzerparameter mit Präfix `gp_`, `od_`, `ms_`, `raster_`, `akku_`, `stoss_`, `ql_` oder `lk_`, jeder mit Kommentar (Prüfskript: 0 ohne Kommentar, 0 ohne Präfix). Die Parameter der Fassung 1, die nur zum alten Layout gehörten (z. B. `gp_ms_*` Mittelschott, `stoss_schraube_*`, `stoss_mutter_*`, `gp_qlb_*`), sind entfernt. Werte im Startzustand, direkt aus Fusion ausgelesen (in den Ausdrücken ohne `_Ref`):
+Alle Skelett-Parameter sind abgeleitet (siehe `docs/skelett.md`). Neu in diesem Design sind 98 Benutzerparameter (seit Version 12 mit `gp_db_x`, `gp_ende_db_abstand`, `gp_ende_loch_reserve`) mit Präfix `gp_`, `od_`, `ms_`, `raster_`, `akku_`, `stoss_`, `ql_` oder `lk_`, jeder mit Kommentar (Prüfskript: 0 ohne Kommentar, 0 ohne Präfix). Die Parameter der Fassung 1, die nur zum alten Layout gehörten (z. B. `gp_ms_*` Mittelschott, `stoss_schraube_*`, `stoss_mutter_*`, `gp_qlb_*`), sind entfernt. Werte im Startzustand, direkt aus Fusion ausgelesen (in den Ausdrücken ohne `_Ref`):
 
 | Parameter | Ausdruck | Wert | Kommentar |
 |---|---|---|---|
@@ -323,8 +345,8 @@ Alle Skelett-Parameter sind abgeleitet (siehe `docs/skelett.md`). Neu in diesem 
 | `gp_paar_d` | `gp_senkung_d + 2.1 mm` | 9,00 mm | abgeleitet: Lochabstand in Zweierlochbildern (Steg zwischen den Senkungen 2,1 mm >= gp_wand_min) |
 | `gp_kantenradius` | `2 mm` | 2,00 mm | Grundplatte: Radius aller senkrechten Kanten, fräsgerecht >= 1,5 mm (MECH-CHA-005) |
 | `gp_fuss_rand` | `3 mm` | 3,00 mm | Grundplatte: Plattenrand außerhalb der reservierten Fußflächen, vorläufig |
-| `gp_ueberstand` | `15 mm` | 15,00 mm | Grundplatte: Verlängerung vorne und hinten über die Getriebe hinaus (Rammschutz, Karosseriehalter), vorläufig 12-15 mm (MECH-CHA-002) |
-| `gp_ende_x` | `platte_x_vorne + gp_ueberstand` | 172,00 mm | abgeleitet: Plattenende vorne (hinten gespiegelt, platte_x_hinten symmetrisch) |
+| `gp_ueberstand` | `20 mm` | 20,00 mm | Grundplatte: Verlängerung vorne und hinten über die Getriebe hinaus (Rammschutz, Karosseriehalter), 20 mm (Nutzerentscheidung 2026-11-13, vorher 15) (MECH-CHA-002) |
+| `gp_ende_x` | `platte_x_vorne + gp_ueberstand` | 177,00 mm | abgeleitet: Plattenende vorne (hinten gespiegelt, platte_x_hinten symmetrisch) |
 | `gp_rechts_vorne_x` | `ubec_x + ubec_l / 2 + 2.5 mm` | 85,00 mm | abgeleitet: Ende der vollen Breite rechts (vor dem UBEC); weiter vorne Abstand Radraum vorne rechts < 5 mm |
 | `stoss_x1` | `teilung_x - teilung_ueberlappung / 2` | −15,00 mm | Stoß: abgeleitet, hintere Stufe |
 | `stoss_x2` | `teilung_x + teilung_ueberlappung / 2` | 15,00 mm | Stoß: abgeleitet, vordere Stufe |
@@ -357,7 +379,10 @@ Alle Skelett-Parameter sind abgeleitet (siehe `docs/skelett.md`). Neu in diesem 
 | `gp_mh_dx` | `4 mm` | 4,00 mm | Lochbild Motorhalter: vor dem Motorflansch, vorläufig |
 | `gp_mh_x` | `motor_flansch_x + gp_mh_dx` | −71,00 mm | abgeleitet: Lochreihe Motorhalter längs |
 | `gp_mh_dy` | `12 mm` | 12,00 mm | Lochbild Motorhalter: quer zur Motorachse +-, vorläufig (3 Löcher) |
-| `gp_ende_loch_x` | `gp_ende_x - gp_ueberstand / 2` | 164,50 mm | abgeleitet: Lochreihe Rammschutz und Karosseriehalter auf der Verlängerung |
+| `gp_db_x` | `achse_x + 29.5 mm` | 162,50 mm | Kopie Schnittstelle: Außenseite der Dämpferbrücken vorne/hinten (±), Vorderachse v8 `va_fs_x_v + va_db_dicke` = 162,5, Hinterachse v14 X −162,5; folgt `achse_x`, ändert sich eine Brücke, von Hand nachziehen (MECH-CHA-007) |
+| `gp_ende_db_abstand` | `akku_einsatz_d / 2 + gp_wand_min + 1 mm` | 4,20 mm | Lochreihe Rammschutz/Karosseriehalter: Mindestabstand Lochachse zur Dämpferbrücke = Gewindeeinsatz/2 + Wand + 1 mm Luft (Nutzerentscheidung 2026-11-13, MECH-CHA-007) |
+| `gp_ende_loch_x` | `( gp_db_x + gp_ende_db_abstand + gp_ende_x - gp_rand ) / 2` | 169,35 mm | abgeleitet: Lochreihe Rammschutz und Karosseriehalter (±), mittig zwischen Brücke + `gp_ende_db_abstand` und Plattenende − `gp_rand` (gleiche Reserve zu beiden Grenzen, MECH-CHA-007) |
+| `gp_ende_loch_reserve` | `( gp_ende_x - gp_rand - gp_db_x - gp_ende_db_abstand ) / 2` | 2,65 mm | Prüfmaß: Reserve der Lochreihe zu beiden Grenzen (Brücke + 4,2 und Rand 5), muss ≥ 0 sein |
 | `gp_ramm_y` | `8 mm` | 8,00 mm | Lochbild Rammschutz vorne/hinten: quer +-, vorläufig |
 | `gp_karo_y` | `22 mm` | 22,00 mm | Lochbild Karosseriehalter vorne/hinten: quer +-, vorläufig |
 | `akku_spiel` | `1 mm` | 1,00 mm | Akkuschacht: Spiel je Seite (MECH-CHA-010) |
@@ -428,7 +453,7 @@ Teile in PETG drucken, Einsätze in Anschläge und Mittelstütze einschmelzen un
 | Oberdeck liegt auf der Mittelstütze auf (Getriebegehäuse folgen mit den Achsen) | ja | |
 | Rasterbohrungen und Lochbilder treffen M3-Schrauben ohne Nacharbeit | ja | |
 | Slicer: Teile liegen ohne Skalierung im Bauraum, keine Stützen nötig | ja | |
-| Masse gewogen (Grundplatte + Oberdeck + Mittelstütze + Anschläge) | ≤ 250 g | |
+| Masse gewogen (Grundplatte + Oberdeck + Mittelstütze + Anschläge) | ≤ 255 g | |
 | Durchbiegung unter 20 N in der Mitte, Auflage an beiden Achsen (MECH-CHA-016) | ≤ 2 mm | |
 
 Fotos: in `docs/images/` ablegen und hier einbinden.
@@ -439,3 +464,4 @@ Fotos: in `docs/images/` ablegen und hier einbinden.
 - **Fassung 2** (2026-10-31, Design-Versionen 8 und 9): Neuaufbau auf dem TT-02B-Skelett v10 (dieses Dokument). Neu: Verlängerung vorne und hinten, Querlenkerböcke neben den Getrieben, Mittelstütze statt Mittelschott, Lochbild Lenkhebelsystem, Stoß ohne Muttern, Erleichterungstaschen.
 - **Review 1** (2026-10-31, Design-Version 10, Skelett v11/v12): Parametertest mit dem Skelett (`radstand` 280 mm) nachgeholt; dabei `raster_nx` aus dem Umriss abgeleitet. Lenkhebel-Lagerbock rechts mit eigener Lage `lk_x_rechts` 1,75 mm nach hinten (2 mm statt 0,25 mm zur Dämpfer-Hülle). Doku: Stoß (tragende Anschläge, offenes Fügespiel), Steifigkeitsabschätzung, Vorgaben Mittelantrieb und Elektronikhalter, Probemontage-Liste.
 - **Fügespiel** (2026-10-31, Design-Version 11, Nutzerentscheidung nach Review 1): `stoss_spiel` 0,2 mm an den Stufenflächen der Druckteile, Randabstand dort ≥ 4,8 mm (Ausnahme MECH-CHA-008). Bild „Mit Skelett“ erneuert (Lenkhebel-Lagerbock rechts in neuer Lage), Detailbild Stoß ergänzt.
+- **Überstand 20 mm** (2026-11-13, Design-Version 12, Nutzerentscheidung aus der Umsetzung „Karosseriehalter und Rammschutz“): `gp_ueberstand` 15 → 20 mm, Lochreihe Rammschutz/Karosseriehalter von X ±164,5 (2,0 mm vor den Dämpferbrücken) nach X ±169,35 (6,85 mm). Platte 354 × 144 mm, Druckteile 191,8 × 144 mm, Druckmasse 251,6 g. Bilder oben/unten/iso/mit Skelett erneuert; das Detailbild Stoß und das Bild zum Parametertest stammen aus Version 11 bzw. 10.
